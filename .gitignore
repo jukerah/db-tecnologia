@@ -1,0 +1,9 @@
+backend/node_modules
+backend/.env
+
+frontend/node_modules
+frontend/.env
+
+levantamento_de_requisitos.doc
+logo1.svg
+logo2.svg
