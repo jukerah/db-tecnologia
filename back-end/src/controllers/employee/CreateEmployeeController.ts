@@ -11,7 +11,7 @@ class CreateEmployeeController {
 
     const createUserService = new CreateEmployeeService();
 
-    const { originalname, filename: photo } = req.file;
+    const { filename: photo } = req.file;
 
     const user = await createUserService.execute({
       name,
