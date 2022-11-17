@@ -19,7 +19,7 @@ class CreateUserService {
       },
     });
 
-    if (userAlreadyRegistered) throw new Error("There is already a registered user!");
+    if (userAlreadyRegistered._count.id != 0) throw new Error("There is already a registered user!");
 
     const passwordHash = await hash(password, 8);
 

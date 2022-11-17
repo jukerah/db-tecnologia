@@ -11,37 +11,48 @@ interface UserRequest {
 class UpdateUserService {
   async execute({ id_user, username, email, password }: UserRequest) {
     if (!id_user) throw new Error("ID is required!");
+    if (!username && !email && !password) {
+      throw new Error("Username, email and password is required!");
+    }
     
     if (username) {
-      const user = await prismaClient.user.update({
+      await prismaClient.user.update({
         where: {
           id: id_user,
         },
         data: {
           username: username,
+        },
+        select: {
+          id: true,
+          username: true
         }
       });
 
-      return user;
+      return {"status": "Username successfully saved!"};
     }
 
     if (email) {
-      const user = await prismaClient.user.update({
+      await prismaClient.user.update({
         where: {
           id: id_user,
         },
         data: {
           email: email,
+        },
+        select: {
+          id: true,
+          email: true
         }
       });
 
-      return user;
+      return {"status": "Email successfully saved!"};
     }
     
     if (password) {
       const passwordHash = await hash(password, 8);
 
-      const user = await prismaClient.user.update({
+      await prismaClient.user.update({
         where: {
           id: id_user,
         },
@@ -50,7 +61,7 @@ class UpdateUserService {
         }
       });
 
-      return user;
+      return {"status": "Password successfully saved!"};
     }
   }
 }
