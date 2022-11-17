@@ -8,6 +8,8 @@ import { CreateUserController } from '../controllers/user/CreateUserController';
 import { UpdateUserController } from '../controllers/user/UpdateUserController';
 import { AuthUserController } from '../controllers/user/AuthUserService';
 
+import { CreateEmployeeController } from '../controllers/employee/CreateEmployeeController';
+
 const router = Router();
 const upload = multer(uploadConfig.upload("./tmp"));
 
@@ -28,7 +30,7 @@ router.post('/session', new AuthUserController().handle);
 //router.delete('/project', isAuthenticated, new DeleteProjectController().handle);
 
 // Employee
-//router.post('/employee', isAuthenticated, new CreateEmployeeController().handle);
+router.post('/employee', isAuthenticated, upload.single('file'), new CreateEmployeeController().handle);
 //router.get('/employees', new ListEmployeeController().handle);
 //router.put('/employee', isAuthenticated, new UpdateEmployeeController().handle);
 //router.delete('/employee', isAuthenticated, new DeleteEmployeeController().handle);

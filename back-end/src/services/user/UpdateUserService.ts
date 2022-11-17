@@ -9,12 +9,7 @@ interface UserRequest {
 }
 
 class UpdateUserService {
-  async execute({ id_user, username, email, password }: UserRequest) {
-    if (!id_user) throw new Error("ID is required!");
-    if (!username && !email && !password) {
-      throw new Error("Username, email and password is required!");
-    }
-    
+  async execute({ id_user, username, email, password }: UserRequest) {    
     if (username) {
       await prismaClient.user.update({
         where: {
