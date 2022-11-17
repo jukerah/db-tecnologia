@@ -1,19 +1,21 @@
 import { Request, Response } from "express";
-import { CreateEmployeeService } from "../../services/employee/CreateEmployeeService";
+import { UpdateEmployeeService } from "../../services/employee/UpdateEmployeeService";
 
-class CreateEmployeeController {
+class UpdateEmployeeController {
   async handle(req: Request, res: Response) {
-    const { name, linkedin } = req.body;
+    const { id_user, name, linkedin } = req.body;
 
+    if (!id_user) throw new Error("ID is required!");
     if (!name) throw new Error("Name is required!");
     if (!linkedin) throw new Error("Linkedin is required!");
     if (!req.file) throw new Error("Photo is required!");
 
-    const createEmployeeService = new CreateEmployeeService();
+    const updateEmployeeService = new UpdateEmployeeService();
 
     const { filename: photo } = req.file;
 
-    const employee = await createEmployeeService.execute({
+    const employee = await updateEmployeeService.execute({
+      id_user,
       name,
       linkedin,
       photo
@@ -23,4 +25,4 @@ class CreateEmployeeController {
   }
 }
 
-export { CreateEmployeeController }
+export { UpdateEmployeeController }
