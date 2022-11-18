@@ -8,7 +8,7 @@ interface EmployeeRequest {
 
 class CreateEmployeeService {
   async execute({ name, linkedin, photo }: EmployeeRequest) {    
-    const user = await prismaClient.employee.create({
+    const employee = await prismaClient.employee.create({
       data: {
         name: name,
         linkedin: linkedin,
@@ -16,7 +16,7 @@ class CreateEmployeeService {
       }
     });
 
-    return user;
+    return employee;
   }
 }
 

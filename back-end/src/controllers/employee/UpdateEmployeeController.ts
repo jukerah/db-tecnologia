@@ -3,9 +3,9 @@ import { UpdateEmployeeService } from "../../services/employee/UpdateEmployeeSer
 
 class UpdateEmployeeController {
   async handle(req: Request, res: Response) {
-    const { id_user, name, linkedin } = req.body;
+    const { id_employee, name, linkedin } = req.body;
 
-    if (!id_user) throw new Error("ID is required!");
+    if (!id_employee) throw new Error("ID is required!");
     if (!name) throw new Error("Name is required!");
     if (!linkedin) throw new Error("Linkedin is required!");
     if (!req.file) throw new Error("Photo is required!");
@@ -15,7 +15,7 @@ class UpdateEmployeeController {
     const { filename: photo } = req.file;
 
     const employee = await updateEmployeeService.execute({
-      id_user,
+      id_employee,
       name,
       linkedin,
       photo
