@@ -1,4 +1,5 @@
 import prismaClient from "../../prisma";
+import fs from 'fs';
 
 interface EmployeeRequest {
   id_employee: string;
@@ -11,6 +12,9 @@ class RemoveEmployeeService {
         id: id_employee
       }
     });
+
+    const filePath = `./tmp/${employee.photo}`;
+    fs.unlinkSync(filePath);
 
     return employee;
   }
