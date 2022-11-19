@@ -24,7 +24,7 @@ class UpdateUserService {
         }
       });
 
-      return {"status": "Username successfully saved!"};
+      return {"message": "Username successfully saved!"};
     }
 
     if (email) {
@@ -41,7 +41,7 @@ class UpdateUserService {
         }
       });
 
-      return {"status": "Email successfully saved!"};
+      return {"message": "Email successfully saved!"};
     }
     
     if (password) {
@@ -56,7 +56,7 @@ class UpdateUserService {
         }
       });
 
-      return {"status": "Password successfully saved!"};
+      return {"message": "Password successfully saved!"};
     }
   }
 }

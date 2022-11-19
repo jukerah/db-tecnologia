@@ -1,4 +1,5 @@
 import { Request, Response } from "express";
+import prismaClient from "../../prisma";
 import { UpdateUserService } from '../../services/user/UpdateUserService';
 
 class UpdateUserController {
@@ -9,6 +10,14 @@ class UpdateUserController {
     if (!username && !email && !password) {
       throw new Error("Username, email and password is required!");
     }
+
+    const searchUser = await prismaClient.user.findUnique({
+      where: {
+        id: id_user
+      }
+    });
+    
+    if (!searchUser) return res.status(404).json({error: "User not found!"});
 
     const createUserService = new UpdateUserService();
 

@@ -7,6 +7,7 @@ import { isAuthenticated } from '../middlewares/isAuthenticated';
 import { CreateUserController } from '../controllers/user/CreateUserController';
 import { UpdateUserController } from '../controllers/user/UpdateUserController';
 import { AuthUserController } from '../controllers/user/AuthUserService';
+import { PasswordRecoveryController } from '../controllers/user/PasswordRecoveryController';
 
 import { CreateProjectController } from '../controllers/project/CreateEmployeeController';
 import { ListProjectController } from '../controllers/project/ListProjectController';
@@ -29,7 +30,7 @@ router.get('/', (req: Request, res: Response) => {
 router.post('/user', new CreateUserController().handle);
 router.put('/user', isAuthenticated, new UpdateUserController().handle);
 router.post('/session', new AuthUserController().handle);
-//router.post('/recovery', new RecoveryController().handle);
+router.post('/password-recovery', new PasswordRecoveryController().handle);
 
 // Project
 router.post('/project', isAuthenticated, upload.single('file'), new CreateProjectController().handle);
