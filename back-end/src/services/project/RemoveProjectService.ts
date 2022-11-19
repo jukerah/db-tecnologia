@@ -6,7 +6,7 @@ interface ProjectRequest {
 }
 
 class RemoveProjectService {
-  async execute({ id_project }: ProjectRequest) {    
+  async execute({ id_project }: ProjectRequest) {  
     const project = await prismaClient.project.delete({
       where: {
         id: id_project

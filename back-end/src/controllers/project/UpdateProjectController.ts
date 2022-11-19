@@ -1,4 +1,5 @@
 import { Request, Response } from "express";
+import prismaClient from "../../prisma";
 import { UpdateProjectService } from "../../services/project/UpdateProjectService";
 
 class UpdateProjectController {
@@ -9,6 +10,14 @@ class UpdateProjectController {
     if (!name) throw new Error("Name is required!");
     if (!project_url) throw new Error("Project URL is required!");
     if (!req.file) throw new Error("Banner is required!");
+
+    const searchProduct = await prismaClient.project.findUnique({
+      where: {
+        id: id_project
+      }
+    });
+    
+    if (!searchProduct) return res.status(404).json({error: "Product not found!"});
 
     const updateProjectService = new UpdateProjectService();
 

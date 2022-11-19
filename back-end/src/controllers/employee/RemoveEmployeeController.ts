@@ -1,4 +1,5 @@
 import { Request, Response } from "express";
+import prismaClient from "../../prisma";
 import { RemoveEmployeeService } from "../../services/employee/RemoveEmployeeService";
 
 class RemoveEmployeeController {
@@ -6,6 +7,14 @@ class RemoveEmployeeController {
     const { id_employee } = req.body;
 
     if (!id_employee) throw new Error("ID is required!");
+
+    const searchEmployee = await prismaClient.employee.findUnique({
+      where: {
+        id: id_employee
+      }
+    });
+    
+    if (!searchEmployee) return res.status(404).json({error: "Employee not found!"});
 
     const removeEmployeeService = new RemoveEmployeeService();
 

@@ -1,4 +1,5 @@
 import { Request, Response } from "express";
+import prismaClient from "../../prisma";
 import { UpdateEmployeeService } from "../../services/employee/UpdateEmployeeService";
 
 class UpdateEmployeeController {
@@ -9,6 +10,14 @@ class UpdateEmployeeController {
     if (!name) throw new Error("Name is required!");
     if (!linkedin) throw new Error("Linkedin is required!");
     if (!req.file) throw new Error("Photo is required!");
+
+    const searchEmployee = await prismaClient.employee.findUnique({
+      where: {
+        id: id_employee
+      }
+    });
+    
+    if (!searchEmployee) return res.status(404).json({error: "Employee not found!"});
 
     const updateEmployeeService = new UpdateEmployeeService();
 
