@@ -15,6 +15,7 @@ import { RemoveEmployeeController } from '../controllers/employee/RemoveEmployee
 
 import { CreateProjectController } from '../controllers/project/CreateEmployeeController';
 import { ListProjectController } from '../controllers/project/ListProjectController';
+import { UpdateProjectController } from '../controllers/project/UpdateProjectController';
 
 const router = Router();
 const upload = multer(uploadConfig.upload("./tmp"));
@@ -32,7 +33,7 @@ router.post('/session', new AuthUserController().handle);
 // Project
 router.post('/project', isAuthenticated, upload.single('file'), new CreateProjectController().handle);
 router.get('/projects', new ListProjectController().handle);
-//router.put('/project', isAuthenticated, new UpdateProjectController().handle);
+router.put('/project', isAuthenticated, upload.single('file'), new UpdateProjectController().handle);
 //router.delete('/project', isAuthenticated, new DeleteProjectController().handle);
 
 // Employee
