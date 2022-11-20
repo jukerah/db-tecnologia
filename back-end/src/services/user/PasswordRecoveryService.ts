@@ -51,7 +51,7 @@ class PasswordRecoveryService {
              <br>
              <p>Caro ${user.username}, foi solicitado a recuperação da sua conta, segue abaixo seus dados para acessar o sistema.</p>
              <p><strong>Usuário:</strong> ${user.username}</p>
-             <p><strong>Senha:</strong> ${password}</p>
+             <p><strong>Nova senha:</strong> ${password}</p>
              <a href="${process.env.WEB_URL}/login">Fazer login</a>
              <br>
              <br>
