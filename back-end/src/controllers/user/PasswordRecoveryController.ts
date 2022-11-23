@@ -24,4 +24,4 @@ class PasswordRecoveryController {
   }
 }
 
-export { PasswordRecoveryController }
+export const passwordRecoveryController = new PasswordRecoveryController();

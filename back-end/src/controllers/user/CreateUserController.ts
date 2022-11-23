@@ -21,4 +21,4 @@ class CreateUserController {
   }
 }
 
-export { CreateUserController }
+export const createUserController = new CreateUserController();

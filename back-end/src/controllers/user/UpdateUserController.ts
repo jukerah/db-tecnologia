@@ -32,4 +32,4 @@ class UpdateUserController {
   }
 }
 
-export { UpdateUserController }
+export const updateUserController = new UpdateUserController();

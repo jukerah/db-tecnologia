@@ -11,4 +11,4 @@ class ListProjectController {
   }
 }
 
-export { ListProjectController }
+export const listProjectController = new ListProjectController();

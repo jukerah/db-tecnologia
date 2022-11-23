@@ -23,4 +23,4 @@ class CreateProjectController {
   }
 }
 
-export { CreateProjectController }
+export const createProjectController = new CreateProjectController();

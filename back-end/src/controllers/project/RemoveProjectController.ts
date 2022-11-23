@@ -24,4 +24,4 @@ class RemoveProjectController {
   }
 }
 
-export { RemoveProjectController }
+export const removeProjectController = new RemoveProjectController();

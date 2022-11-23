@@ -24,4 +24,4 @@ class RemoveEmployeeController {
   }
 }
 
-export { RemoveEmployeeController }
+export const removeEmployeeController = new RemoveEmployeeController();

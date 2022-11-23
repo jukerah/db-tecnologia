@@ -11,4 +11,4 @@ class ListEmployeeController {
   }
 }
 
-export { ListEmployeeController }
+export const listEmployeeController = new ListEmployeeController();

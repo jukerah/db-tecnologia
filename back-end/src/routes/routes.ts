@@ -4,20 +4,20 @@ import uploadConfig from '../config/multer';
 
 import { isAuthenticated } from '../middlewares/isAuthenticated';
 
-import { CreateUserController } from '../controllers/user/CreateUserController';
-import { UpdateUserController } from '../controllers/user/UpdateUserController';
-import { AuthUserController } from '../controllers/user/AuthUserService';
-import { PasswordRecoveryController } from '../controllers/user/PasswordRecoveryController';
+import { createUserController } from '../controllers/user/CreateUserController';
+import { updateUserController } from '../controllers/user/UpdateUserController';
+import { authUserController } from '../controllers/user/AuthUserController';
+import { passwordRecoveryController } from '../controllers/user/PasswordRecoveryController';
 
-import { CreateProjectController } from '../controllers/project/CreateEmployeeController';
-import { ListProjectController } from '../controllers/project/ListProjectController';
-import { UpdateProjectController } from '../controllers/project/UpdateProjectController';
-import { RemoveProjectController } from '../controllers/project/RemoveProjectController';
+import { createProjectController } from '../controllers/project/CreateEmployeeController';
+import { listProjectController } from '../controllers/project/ListProjectController';
+import { updateProjectController } from '../controllers/project/UpdateProjectController';
+import { removeProjectController } from '../controllers/project/RemoveProjectController';
 
-import { CreateEmployeeController } from '../controllers/employee/CreateEmployeeController';
-import { ListEmployeeController } from '../controllers/employee/ListEmployeeController';
-import { UpdateEmployeeController } from '../controllers/employee/UpdateEmployeeController';
-import { RemoveEmployeeController } from '../controllers/employee/RemoveEmployeeController';
+import { createEmployeeController } from '../controllers/employee/CreateEmployeeController';
+import { listEmployeeController } from '../controllers/employee/ListEmployeeController';
+import { updateEmployeeController } from '../controllers/employee/UpdateEmployeeController';
+import { removeEmployeeController } from '../controllers/employee/RemoveEmployeeController';
 
 const router = Router();
 const upload = multer(uploadConfig.upload("./tmp"));
@@ -27,21 +27,21 @@ router.get('/', (req: Request, res: Response) => {
 });
 
 // User
-router.post('/user', new CreateUserController().handle);
-router.put('/user', isAuthenticated, new UpdateUserController().handle);
-router.post('/session', new AuthUserController().handle);
-router.post('/password-recovery', new PasswordRecoveryController().handle);
+router.post('/user', createUserController.handle);
+router.put('/user', isAuthenticated, updateUserController.handle);
+router.post('/session', authUserController.handle);
+router.post('/password-recovery', passwordRecoveryController.handle);
 
 // Project
-router.post('/project', isAuthenticated, upload.single('file'), new CreateProjectController().handle);
-router.get('/projects', new ListProjectController().handle);
-router.put('/project', isAuthenticated, upload.single('file'), new UpdateProjectController().handle);
-router.delete('/project', isAuthenticated, new RemoveProjectController().handle);
+router.post('/project', isAuthenticated, upload.single('file'), createProjectController.handle);
+router.get('/projects', listProjectController.handle);
+router.put('/project', isAuthenticated, upload.single('file'), updateProjectController.handle);
+router.delete('/project', isAuthenticated, removeProjectController.handle);
 
 // Employee
-router.post('/employee', isAuthenticated, upload.single('file'), new CreateEmployeeController().handle);
-router.get('/employees', new ListEmployeeController().handle);
-router.put('/employee', isAuthenticated, upload.single('file'), new UpdateEmployeeController().handle);
-router.delete('/employee', isAuthenticated, new RemoveEmployeeController().handle);
+router.post('/employee', isAuthenticated, upload.single('file'), createEmployeeController.handle);
+router.get('/employees', listEmployeeController.handle);
+router.put('/employee', isAuthenticated, upload.single('file'), updateEmployeeController.handle);
+router.delete('/employee', isAuthenticated, removeEmployeeController.handle);
 
 export { router };

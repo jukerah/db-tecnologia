@@ -34,4 +34,4 @@ class UpdateProjectController {
   }
 }
 
-export { UpdateProjectController }
+export const updateProjectController = new UpdateProjectController();
