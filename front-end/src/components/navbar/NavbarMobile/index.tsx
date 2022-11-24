@@ -12,6 +12,7 @@ export default function NavbarMobile() {
   return (
     <>
       <C.MenuButton
+        aria-label="menu"
         onClick={() => isOpenedMenuMobile ? setIsOpenedMenuMobile(false) : setIsOpenedMenuMobile(true)}
         isOpened={isOpenedMenuMobile}
       >

@@ -9,7 +9,6 @@ export const Header = styled.header`
   align-items: center;
   position: fixed;
   z-index: 1;
-  box-sizing: border-box;
 
   width: 100%;
   height: 60px;

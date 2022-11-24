@@ -2,11 +2,10 @@ import styled from 'styled-components';
 import { theme } from './Theme';
 
 export const Index = styled.div`
-    background: ${theme.background.radial};
+    background: ${theme.background.linearBlue};
     
     display: flex;
     flex-direction: column;
-    box-sizing: border-box;
 
     width: 100%;
     height: 300vh;

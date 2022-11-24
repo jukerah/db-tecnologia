@@ -60,7 +60,6 @@ export const Navbar = styled.nav<NavbarProps>`
   align-items: center;
   flex-direction: column;
   position: fixed;
-  box-sizing: border-box;
 
   width: 100%;
   height: calc(100vh - 60px);
