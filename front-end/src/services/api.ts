@@ -1,8 +1,8 @@
 import axios, { AxiosError } from 'axios';
-import { parseCookies } from 'nookies';
+import { destroyCookie, parseCookies } from 'nookies';
 import { AuthTokenError } from './erros/AuthTokenError';
 
-import { signOut } from '../contexts/AuthContext';
+import Router from 'next/router';
 
 export function setupAPIClient(ctx = undefined) {
   let cookies = parseCookies(ctx);
@@ -19,7 +19,12 @@ export function setupAPIClient(ctx = undefined) {
   }, (error: AxiosError) => {
     if (error.response.status === 401) {
       if (typeof window !== undefined) {
-         signOut();
+        try {
+          destroyCookie(undefined, '@nextauth.token');
+          Router.push('/');
+        } catch (error) {
+          console.log(error);
+        }
       }
     } else {
       return Promise.reject(new AuthTokenError());

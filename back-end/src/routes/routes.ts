@@ -4,6 +4,7 @@ import uploadConfig from '../config/multer';
 
 import { isAuthenticated } from '../middlewares/isAuthenticated';
 
+import { countUserController } from '../controllers/user/CountUserController';
 import { createUserController } from '../controllers/user/CreateUserController';
 import { updateUserController } from '../controllers/user/UpdateUserController';
 import { authUserController } from '../controllers/user/AuthUserController';
@@ -28,6 +29,7 @@ router.get('/', (req: Request, res: Response) => {
 });
 
 // User
+router.get('/user', countUserController.handle);
 router.post('/user', createUserController.handle);
 router.put('/user', isAuthenticated, updateUserController.handle);
 router.post('/session', authUserController.handle);

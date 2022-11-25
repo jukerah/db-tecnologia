@@ -95,20 +95,10 @@ export const Navbar = styled.nav<NavbarProps>`
 
     li { list-style: none; }
 
-    li, button { cursor: pointer; }
-
     gap: 32px;
   }
 
-  .options { margin-top: 24px; }
-
-  button {
-    background-color: transparent;
-    border: none;
-
-    padding: 8px 16px;
-    margin-top: 24px;
-  }
+  .options, .login { margin-top: 24px; }
 
   @media (min-width: 1024px) {
     display: none;
@@ -126,6 +116,7 @@ export const Dropdown = styled.li<DropdownProps>`
     align-items: center;
 
     gap: 8px;
+    cursor: pointer;
   }
 
   svg {
@@ -141,6 +132,6 @@ export const Dropdown = styled.li<DropdownProps>`
     padding: 16px;
     gap: 24px;
 
-    li { font-size: ${theme.fontSizes.md}; }
+    .dropdown-item { font-size: ${theme.fontSizes.md}; }
   }
 `

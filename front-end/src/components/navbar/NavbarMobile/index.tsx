@@ -1,13 +1,17 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import Link from "next/link";
 import * as C from "./styles";
 
 import { FiChevronDown } from 'react-icons/fi';
+
+import { AuthContext } from '../../../contexts/AuthContext';
 
 export default function NavbarMobile() {
   const [ isOpenedMenuMobile, setIsOpenedMenuMobile ] = useState<boolean>(false);
   const [ isOpenedServices, setIsOpenedServices ] = useState<boolean>(false);
   const [ isOpenedOptions, setIsOpenedOptions ] = useState<boolean>(false);
-  const [ isAuthenticated, setIsAuthenticated ] = useState<boolean>(false);
+  
+  const { isAuthenticated, signOut, user } = useContext(AuthContext);
 
   return (
     <>
@@ -31,20 +35,107 @@ export default function NavbarMobile() {
               <FiChevronDown />
             </a>
             <ul className="list-dropdown">
-              <li>Site Institucional</li>
-              <li>Loja Virtual</li>
-              <li>eCommerce</li>
-              <li>Landing Page</li>
-              <li>IA - Inteligência Artificial</li>
-              <li>Bots</li>
-              <li>Blogs</li>
-              <li>Jogos</li>
-              <li>Aplicativos</li>
+            <li>
+              <Link
+                href={"/site"}
+                className="dropdown-item"
+                onClick={() => setIsOpenedMenuMobile(false)}
+              >
+                Site Institucional
+              </Link>
+            </li>
+            <li>
+              <Link
+                href={"/loja-virtual"}
+                className="dropdown-item"
+                onClick={() => setIsOpenedMenuMobile(false)}
+              >
+                Loja Virtual
+              </Link>
+            </li>
+            <li>
+              <Link
+                href={"/ecommerce"}
+                className="dropdown-item"
+                onClick={() => setIsOpenedMenuMobile(false)}
+              >
+                eCommerce
+              </Link>
+            </li>
+            <li>
+              <Link
+                href={"/landing-page"}
+                className="dropdown-item"
+                onClick={() => setIsOpenedMenuMobile(false)}
+              >
+                Landing Page
+              </Link>
+            </li>
+            <li>
+              <Link
+                href={"/inteligencia-artificial"}
+                className="dropdown-item"
+                onClick={() => setIsOpenedMenuMobile(false)}
+              >
+                IA - Inteligência Artificial
+              </Link>
+            </li>
+            <li>
+              <Link
+                href={"/bots"}
+                className="dropdown-item"
+                onClick={() => setIsOpenedMenuMobile(false)}
+              >
+                Bots
+              </Link>
+            </li>
+            <li>
+              <Link
+                href={"/blogs"}
+                className="dropdown-item"
+                onClick={() => setIsOpenedMenuMobile(false)}
+              >
+                Blogs
+              </Link>
+            </li>
+            <li>
+              <Link
+                href={"/aplicativos"}
+                className="dropdown-item"
+                onClick={() => setIsOpenedMenuMobile(false)}
+              >
+                Aplicativos
+              </Link>
+            </li>
             </ul>
           </C.Dropdown>
-          <li>Portfólio</li>
-          <li>Quem Somos</li>
-          <li>Contato</li>
+          <li>
+            <Link
+              href={"/portfolio"}
+              className="menu-item"
+              onClick={() => setIsOpenedMenuMobile(false)}
+            >
+              Portfólio
+            </Link>
+          </li>
+          <li>
+            <Link
+              href={"/quem-somos"}
+              className="menu-item"
+              onClick={() => setIsOpenedMenuMobile(false)}
+            >
+              Quem Somos
+            </Link>
+          </li>
+          <li>
+            <Link
+              href={"/contato"}
+              className="menu-item"
+              onClick={() => setIsOpenedMenuMobile(false)}
+            >
+              Contato
+            </Link>
+          </li>
 
           {isAuthenticated ?
             <C.Dropdown
@@ -54,20 +145,46 @@ export default function NavbarMobile() {
               <a
                 onClick={() => isOpenedOptions ? setIsOpenedOptions(false) : setIsOpenedOptions(true)}
               >
-                username
+                {user.username}
                 <FiChevronDown />
               </a>
               <ul className="list-dropdown">
-                <li>Admin Panel</li>
-                <li>Dados da Conta</li>
-                <li onClick={() => setIsAuthenticated(false)}>
-                  Sair
+                <li>
+                  <Link
+                    href={"/admin-panel"}
+                    className="dropdown-item"
+                    onClick={() => setIsOpenedMenuMobile(false)}
+                  >
+                    Admin Panel
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href={"/account"}
+                    className="dropdown-item"
+                    onClick={() => setIsOpenedMenuMobile(false)}
+                  >
+                    Dados da Conta
+                  </Link>
+                </li>
+                <li onClick={signOut}>
+                  <a
+                    className="dropdown-item"
+                    onClick={() => setIsOpenedMenuMobile(false)}
+                  >
+                    Sair
+                  </a>
                 </li>
             </ul>
           </C.Dropdown>
         :
-          <li>
-            <button onClick={() => setIsAuthenticated(true)}>Login</button>
+          <li className="login">
+            <Link
+              href={"/login"}
+              onClick={() => setIsOpenedMenuMobile(false)}
+            >
+              Login
+            </Link>
           </li>
         }
         </ul>

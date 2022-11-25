@@ -10,11 +10,10 @@ import { BsImage } from 'react-icons/bs';
 import Image from 'next/image';
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement>{
-  text?: string;
   filePreview?: string;
 }
 
-export function Input({ text, ...rest }: InputProps) {
+export function Input({ ...rest }: InputProps) {
     return(
       <C.TextField {...rest} />
     );

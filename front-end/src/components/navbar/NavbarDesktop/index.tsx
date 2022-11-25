@@ -9,7 +9,7 @@ import { AuthContext } from '../../../contexts/AuthContext';
 import OutlineButton from "../../button/OutlineButton";
 
 export default function NavbarDesktop() {
-  const { isAuthenticated, signOut } = useContext(AuthContext);
+  const { isAuthenticated, signOut, user } = useContext(AuthContext);
 
   return (
     <C.Navbar>
@@ -81,7 +81,7 @@ export default function NavbarDesktop() {
         {isAuthenticated ? 
           <C.Dropdown>
             <button className="menu-item">
-              username
+              {user.username}
               <FiChevronDown />
             </button>
             <ul className="list-dropdown">

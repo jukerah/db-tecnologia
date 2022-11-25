@@ -36,23 +36,7 @@ export const Form = styled.form`
 
     transition: all ease-in .2s;
 
-    .forgot-password {
-        color: ${theme.colors.white};
-        font-size: ${theme.fontSizes.sm};
-        text-underline-offset: 4px;
-
-        margin-top: 16px;
-        
-        &:hover { text-decoration: underline; }
-    }
-
     @media (min-width: 1024px) {
-        .forgot-password {
-            color: ${theme.colors.white};
-            font-size: ${theme.fontSizes.md};
-            text-decoration: none;
-        }
-
         padding: 24px;
         gap: 24px;
     }

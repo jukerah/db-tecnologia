@@ -8,6 +8,8 @@ interface ButtonProps {
 
 export const Button = styled.button<ButtonProps>`
     background-color: ${(props) => props.backgroundColor};
+    border: none;
+    
     width: 100%;
     height: 48px;   
 

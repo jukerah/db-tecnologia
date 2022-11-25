@@ -5,12 +5,13 @@ import * as C from "./styles";
 import { toast } from 'react-toastify';
 
 import Header from "../../components/Header";
+import FormTitle from '../../components/title/FormTitle';
 import { Input } from "../../components/TextField";
 import { Button } from "../../components/button/PrimaryButton";
 import { theme } from '../../styles/Theme';
 
 import { AuthContext } from '../../contexts/AuthContext';
-import { canSSRGuest } from '../../utils/canSSRGuest';
+import { canSSRLogin } from '../../utils/canSSRLogin';
 
 export default function Login() {
   const { signIn } = useContext(AuthContext);
@@ -20,10 +21,9 @@ export default function Login() {
 
   async function handleLogin(event: FormEvent) {
     event.preventDefault();
-    console.log('entrou handleLogin');
 
     if (user === '' || password === '') {
-      toast.error('Por favor, preencha os campos email e senha!');
+      toast.error('Por favor, preencha os campos usuário e senha!');
       return;
     }
 
@@ -55,9 +55,10 @@ export default function Login() {
 
         <C.ContainerLogin>
           <C.Form onSubmit={handleLogin}>
-            <h1>Acessar</h1>
+            <FormTitle>Acessar</FormTitle>
             
             <Input
+              aria-label="Usuário"
               type="text"
               placeholder="Usuário*"
               value={user}
@@ -65,6 +66,7 @@ export default function Login() {
             />
 
             <Input
+              aria-label="Senha"
               type="password"
               placeholder="Senha*"
               value={password}
@@ -83,7 +85,7 @@ export default function Login() {
 
             <Link
               className="forgot-password"
-              href="/login"
+              href="/recuperar-senha"
             >
               Esqueceu a senha?
             </Link>
@@ -94,7 +96,7 @@ export default function Login() {
   )
 }
 
-export const getServerSideProps = canSSRGuest(async (ctx) => {
+export const getServerSideProps = canSSRLogin(async (ctx) => {
   return {
     props: {}
   }

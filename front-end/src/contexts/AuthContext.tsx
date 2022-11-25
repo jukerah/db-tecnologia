@@ -10,7 +10,6 @@ type AuthContextData = {
   isAuthenticated: boolean;
   signIn: (credentials: SignInProps) => Promise<void>;
   signOut: () => void;
-  signUp: (credentials: SignUpProps) => Promise<void>;
 }
 
 type UserProps = {
@@ -28,18 +27,11 @@ type AuthProviderProps = {
   children: ReactNode;
 }
 
-type SignUpProps = {
-  username: string;
-  email: string;
-  password: string;
-}
-
 export const AuthContext = createContext({} as AuthContextData);
 
 export function AuthProvider({ children }: AuthProviderProps) {
   const [ user, setUser ] = useState<UserProps>({id: "", username: "", email: ""});
   const [ isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
-  console.log(isAuthenticated);
 
   useEffect(() => {
     const { '@nextauth.token': token } = parseCookies();
@@ -49,18 +41,18 @@ export function AuthProvider({ children }: AuthProviderProps) {
         const { id, username, email } = response.data;
 
         setUser({ id, username, email });
-        isNotAuthenticated(true);
+        authenticated(true);
       })
       .catch(() => {
         signOut();
-        isNotAuthenticated(false);
+        authenticated(false);
       })
     } else {
-      isNotAuthenticated(false);
+      authenticated(false);
     }
   });
 
-  function isNotAuthenticated(status: boolean) {
+  function authenticated(status: boolean) {
     setIsAuthenticated(status);
   }
 
@@ -69,13 +61,13 @@ export function AuthProvider({ children }: AuthProviderProps) {
       destroyCookie(undefined, '@nextauth.token');
       Router.push('/');
       setIsAuthenticated(false);
+      toast.success('Deslogado com sucesso!');
     } catch (error) {
       console.log(error);
     }
   }
 
   async function signIn({ user, password }: SignInProps) {
-    console.log('entrou signIn');
     try {
       const response = await api.post('/session', {
         user,
@@ -103,25 +95,8 @@ export function AuthProvider({ children }: AuthProviderProps) {
     }
   }
 
-  async function signUp({ username, email, password }: SignUpProps) {
-    try {
-      const response = await api.post('/users', {
-        username,
-        email,
-        password
-      });
-
-      toast.success('Usuário cadastrado com sucesso!');
-
-      Router.push('/');
-    } catch (error) {
-      toast.error('Erro ao cadastrar usuário!');
-      console.log(error);
-    }
-  }
-
   return(
-    <AuthContext.Provider value={{ user, isAuthenticated, signIn, signOut, signUp }}>
+    <AuthContext.Provider value={{ user, isAuthenticated, signIn, signOut }}>
       {children}
     </AuthContext.Provider>
   );
