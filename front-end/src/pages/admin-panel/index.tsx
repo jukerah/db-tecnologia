@@ -1,11 +1,14 @@
-import { useState, useContext, FormEvent } from 'react';
 import Head from "next/head";
-import Link from 'next/link';
 import * as C from "./styles";
 
 import { canSSRAuth } from "../../utils/canSSRAuth";
 
+import { AiOutlineFundProjectionScreen } from 'react-icons/ai';
+import { TbUsers } from 'react-icons/tb';
+
 import Header from "../../components/Header";
+import { NavegationButton } from "../../components/button/NavegationButton";
+import { theme } from "../../styles/Theme";
 
 export default function AdminPanel() {
   return (
@@ -22,7 +25,31 @@ export default function AdminPanel() {
       <>
         <Header />
 
-        <h1>Admin Panel</h1>
+        <C.ContainerAdminPanel>
+          <h1>Admin Panel</h1>
+
+          <div className="container-button">
+            <NavegationButton url="/projetos">
+              <>
+                <AiOutlineFundProjectionScreen
+                  size={32}
+                  color={theme.colors.white}
+                />
+                Projetos
+              </>
+            </NavegationButton>
+
+            <NavegationButton url="/equipe">
+              <>
+                <TbUsers
+                  size={32}
+                  color={theme.colors.white}
+                />
+                Equipe
+              </>
+            </NavegationButton>
+          </div>
+        </C.ContainerAdminPanel>
       </>
     </C.AdminPanel>
   )

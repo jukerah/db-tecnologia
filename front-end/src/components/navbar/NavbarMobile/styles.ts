@@ -12,36 +12,37 @@ export const MenuButton = styled.button<MenuButtonProps>`
   display: flex;
   flex-direction: column;
 
-  padding: 8px;
+  padding: 10px;
   gap: 8px;
   cursor: pointer;
 
   div {
     background-color: ${theme.colors.white};
-    border-radius: 2px;
+    border-radius: 1px;
 
-    width: 40px;
-    height: 4px;
+    width: 32px;
+    height: 2px;
 
     transition: all ease-in .5s;
   }
 
   div:nth-of-type(1) {
-      transform: ${(props) => props.isOpened ? 'rotate(45deg)' : 'none'};
-      position: relative;
-      top: ${(props) => props.isOpened ? '12px' : 0};
+    transform: ${(props) => props.isOpened ? 'rotate(405deg)' : 'none'};
+    position: relative;
+    top: ${(props) => props.isOpened ? '10px' : 0};
   }
 
   div:nth-of-type(2) {
-      opacity: ${(props) => props.isOpened ? 0 : 100};
-      position: relative;
-      right: ${(props) => props.isOpened ? '-100px' : 0};
+    transform: ${(props) => props.isOpened ? 'rotate(-405deg)' : 'none'};
+    opacity: ${(props) => props.isOpened ? 0 : 100}; 
+    position: relative;
+    top: ${(props) => props.isOpened ? '10px' : 0};
   }
 
   div:nth-of-type(3) {
-      transform: ${(props) => props.isOpened ? 'rotate(-45deg)' : 'none'};
-      position: relative;
-      top: ${(props) => props.isOpened ? '-12px' : 0};
+    transform: ${(props) => props.isOpened ? 'rotate(-405deg)' : 'none'};
+    position: relative;
+    top: ${(props) => props.isOpened ? '-10px' : 0};
   }
 
   @media (min-width: 1024px) {
@@ -127,7 +128,7 @@ export const Dropdown = styled.li<DropdownProps>`
     display: ${(props) => props.isOpened ? 'flex': 'none'};
     justify-content: start;
     align-items: center;
-    flex-direction: column;
+    flex-direction: column;  
 
     padding: 16px;
     gap: 24px;

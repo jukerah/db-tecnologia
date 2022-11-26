@@ -31,6 +31,6 @@ export const theme = {
     "semiRegular": 300,
     "regular": 400,
     "semiBold": 500,
-    "Bold": 700,
+    "bold": 700,
   }
 };

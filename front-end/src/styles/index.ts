@@ -31,3 +31,19 @@ export const Index = styled.div`
         text-align: center;
     }
 `;
+
+export const SpecialModalBackground = styled.div`
+    background-color: rgba(256, 256, 256, 0.1);
+    backdrop-filter: blur(8px);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 1;
+
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+  `;
