@@ -4,13 +4,13 @@ import * as C from "./styles";
 import { FaSpinner } from 'react-icons/fa';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  loading: boolean;
+  loading?: boolean;
   children: ReactNode;
   backgroundColor: string;
   color: string;
 }
 
-export function Button({ loading, children, backgroundColor, color,  ...rest }: ButtonProps) {
+export function PrimaryButton({ loading, children, backgroundColor, color,  ...rest }: ButtonProps) {
   return (
     <C.Button
       {...rest}

@@ -1,23 +1,22 @@
 import styled from 'styled-components';
-import { theme } from '../../styles/Theme';
 
 export const LabelInputFile = styled.label`
     
 `;
 
 export const TextField = styled.input`
-    color: ${theme.colors.black};
+    color: ${({ theme }) => theme.colors.black};
 
     width: 100%;
     height: 48px;
 
-    font-size: ${theme.fontSizes.sm};
+    font-size: ${({ theme }) => theme.fontSizes.sm};
 
     padding: 0 16px;
     border: none;
 
     &::placeholder {
-        color: ${theme.colors.placeholder};
+        color: ${({ theme }) => theme.colors.placeholder};
     }
 
     outline: none;
@@ -25,6 +24,6 @@ export const TextField = styled.input`
     @media (min-width: 1024px) {
         height: 56px;
         
-        font-size: ${theme.fontSizes.md};
+        font-size: ${({ theme }) => theme.fontSizes.md};
     }
 `;

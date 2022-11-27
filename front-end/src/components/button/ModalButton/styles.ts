@@ -1,8 +1,7 @@
 import styled from 'styled-components';
-import { theme } from '../../../styles/Theme';
 
 export const Button = styled.button`
-    background-color: ${theme.colors.luckPoint};
+    background-color: ${({ theme }) => theme.colors.luckPoint};
     border: none;
 
     display: flex;
@@ -17,9 +16,9 @@ export const Button = styled.button`
 
     cursor: pointer;
 
-    color: ${theme.colors.white};
-    font-size: ${theme.fontSizes.md};
-    font-weight: ${theme.fontWeight.semiBold};
+    color: ${({ theme }) => theme.colors.white};
+    font-size: ${({ theme }) => theme.fontSizes.md};
+    font-weight: ${({ theme }) => theme.fontWeight.semiBold};
 
     &:hover {
         filter: brightness(1.2);
@@ -28,12 +27,11 @@ export const Button = styled.button`
 
     @media (min-width: 1024px) {
         height: 96px;
-        
-        font-size: ${theme.fontSizes.tmd};
+        font-size: ${({ theme }) => theme.fontSizes.tmd};
 
         svg { 
-            width: 64px;
-            height: 64px;
+            width: 48px;
+            height: 48px;
         }
     }
 `;

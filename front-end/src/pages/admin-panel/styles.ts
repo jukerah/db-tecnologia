@@ -1,8 +1,7 @@
 import styled from 'styled-components';
-import { theme } from '../../styles/Theme';
 
 export const AdminPanel = styled.div`
-    background: ${theme.colors.white};
+    background: ${({ theme }) => theme.colors.white};
 
     display: flex;
     justify-content: center;
@@ -11,15 +10,15 @@ export const AdminPanel = styled.div`
     height: 100vh;
 
     h1 {
-        color: ${theme.colors.luckPoint};
+        color: ${({ theme }) => theme.colors.luckPoint};
 
-        font-size: ${theme.fontSizes.tsm};
-        font-weight: ${theme.fontWeight.semiBold};
+        font-size: ${({ theme }) => theme.fontSizes.tsm};
+        font-weight: ${({ theme }) => theme.fontWeight.semiBold};
         text-align: center;
     }
 
     @media (min-width: 1024px) {
-        h1 { font-size: ${theme.fontSizes.tlg}; }
+        h1 { font-size: ${({ theme }) => theme.fontSizes.tlg}; }
     }
 `;
 
@@ -47,7 +46,7 @@ export const ContainerAdminPanel = styled.div`
     }
 
     @media (min-width: 1024px) {
-        h1 { font-size: ${theme.fontSizes.tlg}; }
+        h1 { font-size: ${({ theme }) => theme.fontSizes.tlg}; }
         padding: 136px 32px 40px 32px;
         gap: 48px;
 

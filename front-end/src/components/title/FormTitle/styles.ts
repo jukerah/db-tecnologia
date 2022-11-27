@@ -1,10 +1,9 @@
 import styled from 'styled-components';
-import { theme } from '../../../styles/Theme';
 
 export const Title = styled.h1`
-    color: ${theme.colors.sunflower};
+    color: ${({ theme }) => theme.colors.sunflower};
 
-    font-size: ${theme.fontSizes.lg};
+    font-size: ${({ theme }) => theme.fontSizes.lg};
     font-weight: 700;
     text-align: center;
 
@@ -21,7 +20,7 @@ export const Title = styled.h1`
     transition: all ease-in .2s;
 
     @media (min-width: 1024px) {
-        font-size: ${theme.fontSizes.tmd};
+        font-size: ${({ theme }) => theme.fontSizes.tmd};
         margin-bottom: 16px;
     }
 `;

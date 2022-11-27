@@ -7,7 +7,7 @@ import { toast } from 'react-toastify';
 import Header from "../../components/Header";
 import FormTitle from '../../components/title/FormTitle';
 import { Input } from "../../components/TextField";
-import { Button } from "../../components/button/PrimaryButton";
+import { PrimaryButton } from "../../components/button/PrimaryButton";
 import { theme } from '../../styles/Theme';
 
 import { AuthContext } from '../../contexts/AuthContext';
@@ -42,12 +42,8 @@ export default function Login() {
   return (
     <C.Login>
       <Head>
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="theme-color" content="#FFFFFF" />
         <title>DB Tecnologia - Login</title>
         <meta name="description" content="Acesse sua conta." />
-        <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <>
@@ -73,7 +69,7 @@ export default function Login() {
               onChange={(e) => setPassword(e.target.value)}
             />
 
-            <Button
+            <PrimaryButton
               type="submit"
               loading={isLoading}
               backgroundColor={theme.colors.aquamarine}
@@ -81,7 +77,7 @@ export default function Login() {
               disabled={isLoading}
             >
               Entrar
-            </Button>
+            </PrimaryButton>
 
             <Link
               className="forgot-password"

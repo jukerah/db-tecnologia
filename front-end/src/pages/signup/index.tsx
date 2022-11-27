@@ -7,7 +7,7 @@ import { theme } from '../../styles/Theme';
 
 import Header from "../../components/Header";
 import { Input } from "../../components/TextField";
-import { Button } from "../../components/button/PrimaryButton";
+import { PrimaryButton } from "../../components/button/PrimaryButton";
 
 import { canSSRSignUp } from '../../utils/canSSRSignUp';
 
@@ -48,20 +48,16 @@ export default function SignUp() {
   }
 
   return (
-    <C.Login>
+    <C.SignUp>
       <Head>
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="theme-color" content="#FFFFFF" />
         <title>DB Tecnologia - Cadastrar usuário</title>
-        <meta name="description" content="Cadastre seu usuário." />
-        <link rel="icon" href="/favicon.ico" />
+        <meta name="description" content="Cadastrar usuário." />
       </Head>
 
       <>
         <Header />
 
-        <C.ContainerLogin>
+        <C.ContainerForm>
           <C.Form onSubmit={handleSignUp}>
             <FormTitle>Cadastro</FormTitle>
             
@@ -89,7 +85,7 @@ export default function SignUp() {
               onChange={(e) => setPassword(e.target.value)}
             />
 
-            <Button
+            <PrimaryButton
               type="submit"
               loading={isLoading}
               backgroundColor={theme.colors.aquamarine}
@@ -97,11 +93,11 @@ export default function SignUp() {
               disabled={isLoading}
             >
               Cadastrar
-            </Button>
+            </PrimaryButton>
           </C.Form>
-        </C.ContainerLogin>
+        </C.ContainerForm>
       </>
-    </C.Login>
+    </C.SignUp>
   )
 }
 

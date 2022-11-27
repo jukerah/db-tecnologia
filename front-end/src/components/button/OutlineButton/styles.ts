@@ -1,19 +1,24 @@
 import styled from "styled-components";
-import { theme } from "../../../styles/Theme";
 
-export const Button = styled.nav`
+export const Button = styled.button`
   background-color: transparent;
-  border: 2px solid ${theme.colors.bayOfMany};
+  border: none;
 
-  padding: 8px 16px;
-        
-  &:hover {
-    color: ${theme.colors.cheese};
-    box-shadow: 0px 0px 16px rgba(256, 256, 256, 0.25);
-    animation: rotate 1s infinite;
-  }
-  
-  @keyframes rotate {
+  display: flex;
+
+  a {
+    border: 2px solid ${({ theme }) => theme.colors.bayOfMany};
+    padding: 8px 16px;
+
+    &:hover {
+      border: 2px solid ${({ theme }) => theme.colors.bayOfMany};
+
+      color: ${({ theme }) => theme.colors.cheese};
+      box-shadow: 0px 0px 16px rgba(256, 256, 256, 0.25);
+      animation: rotate 1s infinite;
+    }
+
+    @keyframes rotate {
     0% {
         border-image: linear-gradient(to bottom right, #B8A14F 0%, #49B983 20%, #6782CD 40%, #B8A14F 60%, #49B983 80%, #6782CD 100%);
         border-image-slice: 1;
@@ -33,5 +38,6 @@ export const Button = styled.nav`
         border-image: linear-gradient(to bottom right, #B8A14F 0%, #49B983 20%, #6782CD 40%, #B8A14F 60%, #49B983 80%, #6782CD 100%);
         border-image-slice: 1;
     }
+  }
   }
 `;

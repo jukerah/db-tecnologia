@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { theme } from "../../../styles/Theme";
 
 interface MenuButtonProps {
   isOpened: boolean;
@@ -17,7 +16,7 @@ export const MenuButton = styled.button<MenuButtonProps>`
   cursor: pointer;
 
   div {
-    background-color: ${theme.colors.white};
+    background-color: ${({ theme }) => theme.colors.white};
     border-radius: 1px;
 
     width: 32px;
@@ -55,7 +54,7 @@ interface NavbarProps {
 }
 
 export const Navbar = styled.nav<NavbarProps>`
-  background-color: ${theme.colors.white};
+  background-color: ${({ theme }) => theme.colors.white};
 
   display: flex;
   align-items: center;
@@ -76,14 +75,14 @@ export const Navbar = styled.nav<NavbarProps>`
   ::-webkit-scrollbar { width: 6px; }
 
   ::-webkit-scrollbar-thumb {
-      background: ${theme.colors.luckPoint}; 
+      background: ${({ theme }) => theme.colors.luckPoint}; 
       border-radius: 4px;
   }
 
   * {
-    color: ${theme.colors.black};
-    font-size: ${theme.fontSizes.lg};
-    font-weight: ${theme.fontWeight.regular};
+    color: ${({ theme }) => theme.colors.black};
+    font-size: ${({ theme }) => theme.fontSizes.lg};
+    font-weight: ${({ theme }) => theme.fontWeight.regular};
   }
 
   .menu {
@@ -133,6 +132,6 @@ export const Dropdown = styled.li<DropdownProps>`
     padding: 16px;
     gap: 24px;
 
-    .dropdown-item { font-size: ${theme.fontSizes.md}; }
+    .dropdown-item { font-size: ${({ theme }) => theme.fontSizes.md}; }
   }
 `

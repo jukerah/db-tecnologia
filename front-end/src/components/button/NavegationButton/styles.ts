@@ -1,8 +1,7 @@
 import styled from 'styled-components';
-import { theme } from '../../../styles/Theme';
 
 export const Button = styled.button`
-    background-color: ${theme.colors.luckPoint};
+    background-color: ${({ theme }) => theme.colors.luckPoint};
     border: none;
     
     width: 100%;
@@ -12,9 +11,9 @@ export const Button = styled.button`
     cursor: pointer;
 
     a {
-        color: ${theme.colors.white};
-        font-size: ${theme.fontSizes.md};
-        font-weight: ${theme.fontWeight.semiBold};
+        color: ${({ theme }) => theme.colors.white};
+        font-size: ${({ theme }) => theme.fontSizes.md};
+        font-weight: ${({ theme }) => theme.fontWeight.semiBold};
 
         display: flex;
         justify-content: center;
@@ -31,7 +30,7 @@ export const Button = styled.button`
         height: 96px;
 
         a {
-            font-size: ${theme.fontSizes.tmd};
+            font-size: ${({ theme }) => theme.fontSizes.tmd};
 
             svg { 
                 width: 64px;

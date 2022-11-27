@@ -1,8 +1,7 @@
 import styled from 'styled-components';
-import { theme } from '../../styles/Theme';
 
 export const Login = styled.div`
-    background: ${theme.background.linearBlue};
+    background: ${({ theme }) => theme.background.linearBlue};
 
     width: 100vw;
     height: 100vh;
@@ -22,7 +21,7 @@ export const ContainerLogin = styled.div`
 `;
 
 export const Form = styled.form`
-    background-color: ${theme.colors.midnight};
+    background-color: ${({ theme }) => theme.colors.midnight};
 
     display: flex;
     align-items: center;
@@ -37,8 +36,8 @@ export const Form = styled.form`
     transition: all ease-in .2s;
 
     .forgot-password {
-        color: ${theme.colors.white};
-        font-size: ${theme.fontSizes.sm};
+        color: ${({ theme }) => theme.colors.white};
+        font-size: ${({ theme }) => theme.fontSizes.sm};
         text-underline-offset: 4px;
 
         margin-top: 16px;
@@ -48,8 +47,8 @@ export const Form = styled.form`
 
     @media (min-width: 1024px) {
         .forgot-password {
-            color: ${theme.colors.white};
-            font-size: ${theme.fontSizes.md};
+            color: ${({ theme }) => theme.colors.white};
+            font-size: ${({ theme }) => theme.fontSizes.md};
             text-decoration: none;
         }
 

@@ -1,13 +1,12 @@
 import styled from "styled-components";
-import { theme } from "../../../styles/Theme";
 
 export const Navbar = styled.nav`
   display: none;
 
   * {
-    color: ${theme.colors.white};
-    font-size: ${theme.fontSizes.md};
-    font-weight: ${theme.fontWeight.regular};
+    color: ${({ theme }) => theme.colors.white};
+    font-size: ${({ theme }) => theme.fontSizes.md};
+    font-weight: ${({ theme }) => theme.fontWeight.regular};
   }
 
   .menu {
@@ -27,7 +26,7 @@ export const Navbar = styled.nav`
     .list-dropdown { margin-left: -60px; }
   }
 
-  .menu-item:hover { color: ${theme.colors.cheese}; }
+  .menu-item:hover { color: ${({ theme }) => theme.colors.cheese}; }
 
   @media (min-width: 1024px) {
     display: block;
@@ -35,7 +34,7 @@ export const Navbar = styled.nav`
 `;
 
 export const Dropdown = styled.li`
-  button {
+  .menu-item {
     background-color: transparent;
     border: none;
 
@@ -47,8 +46,8 @@ export const Dropdown = styled.li`
   }
 
   .list-dropdown {
-    background: ${theme.colors.white};
-    border: 1px solid ${theme.colors.black};
+    background: ${({ theme }) => theme.colors.white};
+    border: 1px solid ${({ theme }) => theme.colors.black};
 
     display: none;
     justify-content: start;
@@ -63,17 +62,17 @@ export const Dropdown = styled.li`
       text-underline-offset: 4px;
     }
 
-    .dropdown-item { color: ${theme.colors.black}; }
-    .dropdown-item:hover { color: ${theme.colors.bayOfMany}; }
+    .dropdown-item { color: ${({ theme }) => theme.colors.black}; }
+    .dropdown-item:hover { color: ${({ theme }) => theme.colors.bayOfMany}; }
   }
 
   &:hover {
-    .menu-item { color: ${theme.colors.cheese}; }
+    .menu-item { color: ${({ theme }) => theme.colors.cheese}; }
     .list-dropdown { display: flex; }
 
     svg {
       transform: rotate(540deg);
-      stroke: ${theme.colors.cheese};
+      stroke: ${({ theme }) => theme.colors.cheese};
     }
   }
 `

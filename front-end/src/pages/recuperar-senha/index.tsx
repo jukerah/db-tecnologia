@@ -7,7 +7,7 @@ import { theme } from '../../styles/Theme';
 
 import Header from "../../components/Header";
 import { Input } from "../../components/TextField";
-import { Button } from "../../components/button/PrimaryButton";
+import { PrimaryButton } from "../../components/button/PrimaryButton";
 
 import { AuthContext } from '../../contexts/AuthContext';
 import { canSSRGuest } from '../../utils/canSSRGuest';
@@ -15,7 +15,7 @@ import { canSSRGuest } from '../../utils/canSSRGuest';
 import { api } from '../../services/apiClient';
 import FormTitle from '../../components/title/FormTitle';
 
-export default function Login() {
+export default function ForgotPassword() {
   const { signIn } = useContext(AuthContext);
   const [ email, setEmail ] = useState<string>('');
   const [ isLoading, setIsLoading ] = useState<boolean>(false);
@@ -46,20 +46,16 @@ export default function Login() {
   }
 
   return (
-    <C.Login>
+    <C.ForgotPassword>
       <Head>
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="theme-color" content="#FFFFFF" />
         <title>DB Tecnologia - Recuperar senha</title>
         <meta name="description" content="Recupere sua senha." />
-        <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <>
         <Header />
 
-        <C.ContainerLogin>
+        <C.ContainerForm>
           <C.Form onSubmit={handleForgotPassword}>
             <FormTitle>Recuperar Senha</FormTitle>
             
@@ -71,7 +67,7 @@ export default function Login() {
               onChange={(e) => setEmail(e.target.value)}
             />
 
-            <Button
+            <PrimaryButton
               type="submit"
               loading={isLoading}
               backgroundColor={theme.colors.aquamarine}
@@ -79,11 +75,11 @@ export default function Login() {
               disabled={isLoading}
             >
               Recuperar
-            </Button>
+            </PrimaryButton>
           </C.Form>
-        </C.ContainerLogin>
+        </C.ContainerForm>
       </>
-    </C.Login>
+    </C.ForgotPassword>
   )
 }
 

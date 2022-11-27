@@ -15,10 +15,10 @@ export default function NavbarDesktop() {
     <C.Navbar>
       <ul className="menu">
         <C.Dropdown>
-          <button className="menu-item">
+          <Link href={"/servicos"} className="menu-item">
             Serviços
             <FiChevronDown />
-          </button>
+          </Link>
           <ul className="list-dropdown">
             <li>
               <Link href={"/site"} className="dropdown-item">
@@ -104,10 +104,8 @@ export default function NavbarDesktop() {
           </C.Dropdown>
         :
           <li>
-            <OutlineButton>
-              <Link href={"/login"}>
+            <OutlineButton url={"/login"}>
                 Login
-              </Link>
             </OutlineButton>
           </li>
         }

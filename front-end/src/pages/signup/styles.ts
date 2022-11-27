@@ -1,14 +1,13 @@
 import styled from 'styled-components';
-import { theme } from '../../styles/Theme';
 
-export const Login = styled.div`
-    background: ${theme.background.linearBlue};
+export const SignUp = styled.div`
+    background: ${({ theme }) => theme.background.linearBlue};
 
     width: 100vw;
     height: 100vh;
 `;
 
-export const ContainerLogin = styled.div`
+export const ContainerForm = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
@@ -22,7 +21,7 @@ export const ContainerLogin = styled.div`
 `;
 
 export const Form = styled.form`
-    background-color: ${theme.colors.midnight};
+    background-color: ${({ theme }) => theme.colors.midnight};
 
     display: flex;
     align-items: center;

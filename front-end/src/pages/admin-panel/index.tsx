@@ -14,12 +14,8 @@ export default function AdminPanel() {
   return (
     <C.AdminPanel>
       <Head>
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="theme-color" content="#FFFFFF" />
         <title>DB Tecnologia - Login</title>
         <meta name="description" content="Acesse sua conta." />
-        <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <>

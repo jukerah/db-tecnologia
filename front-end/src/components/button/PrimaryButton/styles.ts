@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { theme } from '../../../styles/Theme';
 
 interface ButtonProps {
     backgroundColor: string;
@@ -15,8 +14,8 @@ export const Button = styled.button<ButtonProps>`
 
     a {
         color: ${(props) => props.color};
-        font-size: ${theme.fontSizes.md};
-        font-weight: ${theme.fontWeight.bold};
+        font-size: ${({ theme }) => theme.fontSizes.md};
+        font-weight: ${({ theme }) => theme.fontWeight.bold};
     }
 
     &:hover {
@@ -29,6 +28,6 @@ export const Button = styled.button<ButtonProps>`
     @media (min-width: 1024px) {
         height: 56px;
 
-        a { font-size: ${theme.fontSizes.lg}; }
+        a { font-size: ${({ theme }) => theme.fontSizes.lg}; }
     }
 `;
