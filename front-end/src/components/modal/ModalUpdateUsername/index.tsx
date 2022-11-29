@@ -24,7 +24,7 @@ export default function ModalUpdateUsername({ isOpened, toggleModal }: ModalUpda
   const [ username, setUsername ] = useState<string>('');
 
   useEffect(() => {
-    if (!isOpened) setUsername('');
+    if (!isOpened) clearForm();
   }, [isOpened]);
 
   async function handleUpdateUser(event: FormEvent) {
@@ -44,7 +44,7 @@ export default function ModalUpdateUsername({ isOpened, toggleModal }: ModalUpda
         username: username
     })
     .then(() => {
-      setUsername('');
+      clearForm();
       toggleModal();
       toast.success('Usuário salvo com sucesso!');
     })
@@ -56,8 +56,12 @@ export default function ModalUpdateUsername({ isOpened, toggleModal }: ModalUpda
     setIsLoading(false);
   }
 
-  function handleCancel() {
+  function clearForm() {
     setUsername('');
+  }
+
+  function handleCancel() {
+    clearForm();
     toggleModal();
   }
   
@@ -82,7 +86,6 @@ export default function ModalUpdateUsername({ isOpened, toggleModal }: ModalUpda
               placeholder="Digite seu novo usuário"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
-              required
             />
           </div>
 

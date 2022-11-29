@@ -26,8 +26,7 @@ export default function ModalUpdatePassword({ isOpened, toggleModal }: ModalUpda
 
   useEffect(() => {
     if (!isOpened) {
-      setPassword('');
-      setPasswordAux('');
+      clearForm();
     }
   }, [isOpened]);
 
@@ -58,8 +57,7 @@ export default function ModalUpdatePassword({ isOpened, toggleModal }: ModalUpda
         password: password
     })
     .then(() => {
-      setPassword('');
-      setPasswordAux('');
+      clearForm();
       toggleModal();
       toast.success('Senha salva com sucesso!');
     })
@@ -71,9 +69,13 @@ export default function ModalUpdatePassword({ isOpened, toggleModal }: ModalUpda
     setIsLoading(false);
   }
 
-  function handleCancel() {
+  function clearForm() {
     setPassword('');
     setPasswordAux('');
+  }
+
+  function handleCancel() {
+    clearForm();
     toggleModal();
   }
   
@@ -98,7 +100,6 @@ export default function ModalUpdatePassword({ isOpened, toggleModal }: ModalUpda
               placeholder="Digite seu novo usuário"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              required
             />
           </div>
 

@@ -7,20 +7,32 @@ export const StyledModal = Modal.styled`
   backdrop-filter: blur(10px);
 
   display: flex;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
   flex-direction: column;
 
   width: 100%;
   max-width: 500px;
+  max-height: 100vh;
 
-  padding: 16px;
+  padding: 16px 12px 16px 16px;
   gap: 16px;
+
+  overflow-y: scroll;
+  &::-webkit-scrollbar {
+    width: 4px;
+    background-color: ${({ theme }) => theme.colors.midnight};
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: ${({ theme }) => theme.colors.cheese};
+  }
 
   transition: all ease-in .2s;
 
   @media (min-width: 1024px) {
-    padding: 24px;
+    padding: 24px 20px 24px 24px;
+    max-height: calc(100vh - 64px);
   }
 `;
 

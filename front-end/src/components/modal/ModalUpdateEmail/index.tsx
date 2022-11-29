@@ -24,7 +24,7 @@ export default function ModalUpdateEmail({ isOpened, toggleModal }: ModalUpdateE
   const [ email, setEmail ] = useState<string>('');
 
   useEffect(() => {
-    if (!isOpened) setEmail('');
+    if (!isOpened) clearForm();
   }, [isOpened]);
 
   async function handleUpdateEmail(event: FormEvent) {
@@ -44,7 +44,7 @@ export default function ModalUpdateEmail({ isOpened, toggleModal }: ModalUpdateE
         email: email
     })
     .then(() => {
-      setEmail('');
+      clearForm();
       toggleModal();
       toast.success('E-mail salvo com sucesso!');
     })
@@ -56,8 +56,12 @@ export default function ModalUpdateEmail({ isOpened, toggleModal }: ModalUpdateE
     setIsLoading(false);
   }
 
-  function handleCancel() {
+  function clearForm() {
     setEmail('');
+  }
+
+  function handleCancel() {
+    clearForm();
     toggleModal();
   }
   
@@ -82,7 +86,6 @@ export default function ModalUpdateEmail({ isOpened, toggleModal }: ModalUpdateE
               placeholder="Digite seu novo e-mail"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              required
             />
           </div>
 

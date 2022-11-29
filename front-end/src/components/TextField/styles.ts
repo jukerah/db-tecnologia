@@ -1,8 +1,46 @@
 import styled from 'styled-components';
 
 export const LabelInputFile = styled.label`
+  background-color: ${({ theme }) => theme.colors.white};
+  border: none;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  min-height: 170px;
+
+  cursor: pointer;
+
+  input { display: none; }
+
+  span {
+    color: ${({ theme }) => theme.colors.black};
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
     
+    position: absolute;
+    opacity: .7;
+
+    svg { transition: all 0.5s; }
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+
+  &:hover span svg {
+    opacity: 1;
+    transform: scale(2);
+  }
 `;
+
 interface TextFieldProps {
     search: boolean;
 }

@@ -10,7 +10,7 @@ class ListProjectService{
         banner: true
       },
       orderBy: {
-        created_at: 'asc'
+        created_at: 'desc'
       }
     });
 

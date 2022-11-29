@@ -24,6 +24,7 @@ interface ProjectsProps {
 }
 
 export default function Projects({ listProject }: ProjectsProps) {
+  const [ Projects, setProjects ] = useState<ProjectProps[]>(listProject);
   const [ projectId, setProjectId ] = useState<string>('');
   const [ projectName, setProjectName ] = useState<string>('');
   const [ projectUrl, setProjectUrl ] = useState<string>('');
@@ -34,6 +35,14 @@ export default function Projects({ listProject }: ProjectsProps) {
   const [ isOpenedModalCreateProject, setIsOpenedModalCreateProject ] = useState<boolean>(false);
   const [ isOpenedModalUpdateProject, setIsOpenedModalUpdateProject ] = useState<boolean>(false);
   const [ isOpenedModalRemoveProject, setIsOpenedModalRemoveProject ] = useState<boolean>(false);
+
+  async function refreshListProject() {
+    const apiClient = setupAPIClient();
+
+    const listProject = await apiClient.get('/projects');
+
+    setProjects(listProject.data);
+  }
 
   function toggleModalCreateProject() {
     setIsOpenedModalCreateProject(!isOpenedModalCreateProject);
@@ -107,7 +116,7 @@ export default function Projects({ listProject }: ProjectsProps) {
           </C.ContainerHeader>
 
           <C.GridProjects>
-            {listProject.map(({ id, name, project_url, banner}) => name.toLowerCase().includes(searchProject.toLowerCase()) && (
+            {Projects.map(({ id, name, project_url, banner}) => name.toLowerCase().includes(searchProject.toLowerCase()) && (
               <C.Project key={id}>
                 <h2>{name}</h2>
 
@@ -151,6 +160,7 @@ export default function Projects({ listProject }: ProjectsProps) {
           <ModalCreateProject
             toggleModal={toggleModalCreateProject}
             isOpened={isOpenedModalCreateProject}
+            refreshListProject={refreshListProject}
           />
         </C.ContainerProjects>
       </>

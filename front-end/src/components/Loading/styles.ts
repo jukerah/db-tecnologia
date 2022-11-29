@@ -2,13 +2,13 @@ import styled from "styled-components";
 
 export const Loading = styled.div`
   background-color: rgba(256, 256, 256, 0.7);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(4px);
 
   display: flex;
   justify-content: center;
   align-items: center;
   position: fixed;
-  z-index: 2;
+  z-index: 999;
 
   width: 100vw;
   height: 100vh;
@@ -16,10 +16,29 @@ export const Loading = styled.div`
   top: 0;
   left: 0;
 
-  svg { animation: rotation 2s infinite; }
+  .spinner {
+    display: flex;
+    position: fixed;
+    z-index: 1031;
+    top: calc(50% - 40px);
+    right: calc(50% - 40px);
+  }
 
-  @keyframes rotation {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+  .spinner-icon {
+    width: 80px;
+    height: 80px;
+    box-sizing: border-box;
+
+    border: solid 16px transparent;
+    border-top-color: #1B1A70;
+    border-left-color: #2F3B87;
+    border-radius: 50%;
+
+    animation: spinner 400ms linear infinite;
+  }
+
+  @keyframes spinner {
+    0%   { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
   }
 `;

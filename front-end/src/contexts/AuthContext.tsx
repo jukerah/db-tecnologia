@@ -61,7 +61,6 @@ export function AuthProvider({ children }: AuthProviderProps) {
       destroyCookie(undefined, '@nextauth.token');
       Router.push('/');
       setIsAuthenticated(false);
-      toast.success('Deslogado com sucesso!');
     } catch (error) {
       console.log(error);
     }
@@ -85,8 +84,6 @@ export function AuthProvider({ children }: AuthProviderProps) {
       setIsAuthenticated(true);
 
       api.defaults.headers['Authorization'] = `Bearer ${token}`
-
-      toast.success('Logado com sucesso!');
 
       Router.push('/admin-panel');
     } catch (error) {
