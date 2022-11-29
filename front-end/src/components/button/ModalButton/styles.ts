@@ -1,7 +1,12 @@
 import styled from 'styled-components';
 
-export const Button = styled.button`
-    background-color: ${({ theme }) => theme.colors.luckPoint};
+interface ButtonProps {
+    backgroundColor: string;
+    color: string;
+}
+
+export const Button = styled.button<ButtonProps>`
+    background-color: ${(props) => props.backgroundColor};
     border: none;
 
     display: flex;
@@ -9,16 +14,17 @@ export const Button = styled.button`
     align-items: center;
     
     width: 100%;
-    height: 56px;
+    height: 48px;
 
     padding: 0 32px;
     gap: 26px;
 
     cursor: pointer;
 
-    color: ${({ theme }) => theme.colors.white};
+    color: ${(props) => props.color};
     font-size: ${({ theme }) => theme.fontSizes.md};
     font-weight: ${({ theme }) => theme.fontWeight.semiBold};
+    white-space: nowrap;
 
     &:hover {
         filter: brightness(1.2);
@@ -26,12 +32,12 @@ export const Button = styled.button`
     }
 
     @media (min-width: 1024px) {
-        height: 96px;
-        font-size: ${({ theme }) => theme.fontSizes.tmd};
+        height: 56px;
+        font-size: ${({ theme }) => theme.fontSizes.lg};
 
         svg { 
-            width: 48px;
-            height: 48px;
+            width: 32px;
+            height: 32px;
         }
     }
 `;

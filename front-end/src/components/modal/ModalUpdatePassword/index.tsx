@@ -1,4 +1,4 @@
-import { useState, FormEvent, useContext } from "react";
+import { useState, FormEvent, useContext, useEffect } from "react";
 import * as C from "./styles";
 import { Modal } from "../Modal";
 import { toast } from "react-toastify";
@@ -23,6 +23,13 @@ export default function ModalUpdatePassword({ isOpened, toggleModal }: ModalUpda
   const [ isLoading, setIsLoading ] = useState<boolean>(false);
   const [ password, setPassword ] = useState<string>('');
   const [ passwordAux, setPasswordAux ] = useState<string>('');
+
+  useEffect(() => {
+    if (!isOpened) {
+      setPassword('');
+      setPasswordAux('');
+    }
+  }, [isOpened]);
 
   async function handleUpdatePassword(event: FormEvent) {
     event.preventDefault();

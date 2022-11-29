@@ -25,7 +25,7 @@ class MyDocument extends Document {
 
   render() {
     return (
-      <Html lang="pt-BR">
+      <Html>
       <Head>
         <meta name="theme-color" content="#FFFFFF" />
         <link rel="icon" href="/favicon.ico" />

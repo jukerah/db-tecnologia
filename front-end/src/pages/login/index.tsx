@@ -80,10 +80,10 @@ export default function Login() {
             </PrimaryButton>
 
             <Link
-              className="forgot-password"
-              href="/recuperar-senha"
+              className="password-reset"
+              href="/password-reset"
             >
-              Esqueceu a senha?
+              Esqueceu sua senha?
             </Link>
           </C.Form>
         </C.ContainerLogin>

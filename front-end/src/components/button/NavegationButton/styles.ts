@@ -5,7 +5,7 @@ export const Button = styled.button`
     border: none;
     
     width: 100%;
-    height: 56px;
+    height: 48px;
 
     padding: 0 32px;
     cursor: pointer;
@@ -14,6 +14,7 @@ export const Button = styled.button`
         color: ${({ theme }) => theme.colors.white};
         font-size: ${({ theme }) => theme.fontSizes.md};
         font-weight: ${({ theme }) => theme.fontWeight.semiBold};
+        white-space: nowrap;
 
         display: flex;
         justify-content: center;
@@ -27,14 +28,14 @@ export const Button = styled.button`
     }
 
     @media (min-width: 1024px) {
-        height: 96px;
+        height: 56px;
 
         a {
-            font-size: ${({ theme }) => theme.fontSizes.tmd};
+            font-size: ${({ theme }) => theme.fontSizes.lg};
 
             svg { 
-                width: 64px;
-                height: 64px;
+                width: 32px;
+                height: 32px;
              }
         }
     }

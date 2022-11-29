@@ -8,12 +8,13 @@ export default function Header() {
 
   return (
     <C.Header>
-      <Logo />
-      
-      <NavbarDesktop />
+      <C.ContainerHeader>
+        <Logo />
+        
+        <NavbarDesktop />
 
-      <NavbarMobile />
-
+        <NavbarMobile />
+      </C.ContainerHeader>
     </C.Header>
   )
 }

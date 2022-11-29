@@ -12,12 +12,12 @@ import { AuthContext } from "../../../contexts/AuthContext";
 
 import { setupAPIClient } from "../../../services/api";
 
-interface ModalUpdateEmailProps {
+interface ModalCreateProjectProps {
   isOpened: boolean;
   toggleModal: () => void;
 }
 
-export default function ModalUpdateEmail({ isOpened, toggleModal }: ModalUpdateEmailProps) {
+export default function ModalCreateProject({ isOpened, toggleModal }: ModalCreateProjectProps) {
   const { user } = useContext(AuthContext);
 
   const [ isLoading, setIsLoading ] = useState<boolean>(false);
@@ -68,7 +68,7 @@ export default function ModalUpdateEmail({ isOpened, toggleModal }: ModalUpdateE
       isLoading={isLoading}
     >
       <C.Form onSubmit={handleUpdateEmail}>
-        <FormTitle>Alterar E-mail</FormTitle>
+        <FormTitle>Cadastrar Projeto</FormTitle>
 
         <C.ContainerForm>
           <div className="container-input">

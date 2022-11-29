@@ -11,7 +11,11 @@ const port = process.env.PORT || 3333;
 const app = express();
 app.use(express.json());
 app.use(cors());
-app.use(helmet());
+// app.use(helmet());
+// app.use((req, res, next) => {
+// 	res.removeHeader("Cross-Origin-Embedder-Policy");
+// 	next();
+// });
 
 app.use(router);
 

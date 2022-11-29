@@ -14,8 +14,8 @@ export default function AdminPanel() {
   return (
     <C.AdminPanel>
       <Head>
-        <title>DB Tecnologia - Login</title>
-        <meta name="description" content="Acesse sua conta." />
+        <title>DB Tecnologia - Admin Panel</title>
+        <meta name="description" content="Admin Panel." />
       </Head>
 
       <>
@@ -25,7 +25,7 @@ export default function AdminPanel() {
           <h1>Admin Panel</h1>
 
           <div className="container-button">
-            <NavegationButton url="/projetos">
+            <NavegationButton url="/admin-panel/projets">
               <>
                 <AiOutlineFundProjectionScreen
                   size={32}
@@ -35,7 +35,7 @@ export default function AdminPanel() {
               </>
             </NavegationButton>
 
-            <NavegationButton url="/equipe">
+            <NavegationButton url="/admin-panel/team">
               <>
                 <TbUsers
                   size={32}

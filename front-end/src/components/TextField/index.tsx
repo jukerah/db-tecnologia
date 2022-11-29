@@ -1,20 +1,13 @@
-import {
-  InputHTMLAttributes,
-  TextareaHTMLAttributes,
-  SelectHTMLAttributes,
-  ReactNode
-} from 'react';
+import { InputHTMLAttributes } from 'react';
 import * as C from "./styles";
-
-import { BsImage } from 'react-icons/bs';
-import Image from 'next/image';
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement>{
   filePreview?: string;
+  search?: boolean;
 }
 
-export function Input({ ...rest }: InputProps) {
+export function Input({ search, ...rest }: InputProps) {
     return(
-      <C.TextField {...rest} />
+      <C.TextField {...rest} search={search} />
     );
 }

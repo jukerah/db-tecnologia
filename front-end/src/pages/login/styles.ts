@@ -35,7 +35,7 @@ export const Form = styled.form`
 
     transition: all ease-in .2s;
 
-    .forgot-password {
+    .password-reset {
         color: ${({ theme }) => theme.colors.white};
         font-size: ${({ theme }) => theme.fontSizes.sm};
         text-underline-offset: 4px;
@@ -46,7 +46,7 @@ export const Form = styled.form`
     }
 
     @media (min-width: 1024px) {
-        .forgot-password {
+        .password-reset {
             color: ${({ theme }) => theme.colors.white};
             font-size: ${({ theme }) => theme.fontSizes.md};
             text-decoration: none;

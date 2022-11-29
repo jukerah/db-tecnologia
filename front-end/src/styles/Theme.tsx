@@ -5,6 +5,7 @@ export const theme = {
     "coralRed": "#FF3F4A",
     "cheese": "#FFC978",
     "sunflower": "#E4D01D",
+    "gold": "#FFD600",
     "jade": "#00C163",
     "springGreen": "#00E676",
     "aquamarine": "#45FFB1",

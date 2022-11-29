@@ -46,7 +46,11 @@ export default function Account() {
           <h1>Dados da Conta</h1>
 
           <div className="container-button">
-            <ModalButton isOpened={toggleModalUpdateUser}>
+            <ModalButton
+              isOpened={toggleModalUpdateUser}
+              backgroundColor={theme.colors.luckPoint}
+              color={theme.colors.white}
+            >
               <FaUser
                 size={32}
                 color={theme.colors.white}
@@ -54,7 +58,11 @@ export default function Account() {
               Alterar usuário
             </ModalButton>
 
-            <ModalButton isOpened={toggleModalUpdateEmail}>
+            <ModalButton
+              isOpened={toggleModalUpdateEmail}
+              backgroundColor={theme.colors.luckPoint}
+              color={theme.colors.white}
+            >
               <MdEmail
                 size={32}
                 color={theme.colors.white}
@@ -62,7 +70,11 @@ export default function Account() {
               Alterar e-mail
             </ModalButton>
 
-            <ModalButton isOpened={toggleModalUpdatePassword}>
+            <ModalButton
+              isOpened={toggleModalUpdatePassword}
+              backgroundColor={theme.colors.luckPoint}
+              color={theme.colors.white}
+            >
               <IoIosLock
                 size={32}
                 color={theme.colors.white}

@@ -40,7 +40,7 @@ export const SpecialModalBackground = styled.div`
     left: 0;
     padding: 24px;
 
-    @media (min-width: 2014px) {
+    @media (min-width: 1024px) {
         padding: 32px;
     }
 `;

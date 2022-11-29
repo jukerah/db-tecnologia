@@ -1,4 +1,4 @@
-import { useState, FormEvent, useContext } from "react";
+import { useState, FormEvent, useContext, useEffect } from "react";
 import * as C from "./styles";
 import { Modal } from "../Modal";
 import { toast } from "react-toastify";
@@ -22,6 +22,10 @@ export default function ModalUpdateUsername({ isOpened, toggleModal }: ModalUpda
 
   const [ isLoading, setIsLoading ] = useState<boolean>(false);
   const [ username, setUsername ] = useState<string>('');
+
+  useEffect(() => {
+    if (!isOpened) setUsername('');
+  }, [isOpened]);
 
   async function handleUpdateUser(event: FormEvent) {
     event.preventDefault();
