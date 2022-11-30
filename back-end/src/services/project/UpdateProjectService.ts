@@ -4,7 +4,7 @@ interface ProjectRequest {
   id_project: string;
   name: string;
   project_url: string;
-  banner: string;
+  banner?: string;
 }
 
 class UpdateProjectService {

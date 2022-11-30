@@ -5,7 +5,7 @@ import "../styles/fonts.css";
 import "react-toastify/dist/ReactToastify.css";
 import { useRouter } from "next/router"
 import NProgress from "nprogress";
-import "../styles/nprogress.css";
+import NProgressStyles from "../styles/nprogress";
 
 import { ToastContainer } from "react-toastify";
 import { ModalProvider } from "styled-react-modal"
@@ -42,6 +42,7 @@ export default function App({ Component, pageProps }: AppProps) {
     <ThemeProvider theme={theme}>
       <AuthProvider>
         <GlobalStyle />
+        <NProgressStyles />
 
         <ToastContainer
           autoClose={3000}

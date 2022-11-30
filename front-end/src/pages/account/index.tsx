@@ -11,9 +11,9 @@ import { IoIosLock } from 'react-icons/io';
 
 import Header from "../../components/Header";
 import { ModalButton } from "../../components/button/ModalButton";
-import ModalUpdateUsername from '../../components/modal/ModalUpdateUsername';
-import ModalUpdateEmail from '../../components/modal/ModalUpdateEmail';
-import ModalUpdatePassword from '../../components/modal/ModalUpdatePassword';
+import ModalUpdateUsername from '../../components/modal/user/ModalUpdateUsername';
+import ModalUpdateEmail from '../../components/modal/user/ModalUpdateEmail';
+import ModalUpdatePassword from '../../components/modal/user/ModalUpdatePassword';
 
 export default function Account() {
   const [ isOpenedModalUpdateUser, setIsOpenedModalUpdateUser ] = useState(false);

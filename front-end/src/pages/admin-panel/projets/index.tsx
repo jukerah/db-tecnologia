@@ -8,9 +8,10 @@ import { canSSRAuth } from "../../../utils/canSSRAuth";
 import Header from "../../../components/Header";
 import { ModalButton } from "../../../components/button/ModalButton";
 import { Input } from "../../../components/TextField";
-import ModalCreateProject from "../../../components/modal/ModalCreateProject";
+import ModalCreateProject from "../../../components/modal/project/ModalCreateProject";
 import { theme } from "../../../styles/Theme";
 import { setupAPIClient } from "../../../services/api";
+import ModalUpdateProject from "../../../components/modal/project/ModalUpdateProject";
 
 interface ProjectProps {
   id: string;
@@ -26,9 +27,6 @@ interface ProjectsProps {
 export default function Projects({ listProject }: ProjectsProps) {
   const [ Projects, setProjects ] = useState<ProjectProps[]>(listProject);
   const [ projectId, setProjectId ] = useState<string>('');
-  const [ projectName, setProjectName ] = useState<string>('');
-  const [ projectUrl, setProjectUrl ] = useState<string>('');
-  const [ projectBanner, setProjectBanner ] = useState<string>('');
 
   const [ searchProject, setSearchProject ] = useState<string>('');
 
@@ -48,26 +46,13 @@ export default function Projects({ listProject }: ProjectsProps) {
     setIsOpenedModalCreateProject(!isOpenedModalCreateProject);
   }
 
-  function toggleModalUpdateProject({
-    id,
-    name,
-    project_url,
-    banner
-  }: ProjectProps) {
-    setIsOpenedModalCreateProject(!isOpenedModalCreateProject);
+  function toggleModalUpdateProject() {
+    setIsOpenedModalUpdateProject(!isOpenedModalUpdateProject);
   }
 
-  function handleUpdateProject({
-    id,
-    name,
-    project_url,
-    banner
-  }: ProjectProps) {
-    setProjectId(id);
-    setProjectName(name);
-    setProjectUrl(project_url);
-    setProjectBanner(banner);
-    toggleModalUpdateProject({ id, name, project_url, banner });
+  function handleUpdateProject(projectId: string) {
+    setProjectId(projectId);
+    toggleModalUpdateProject();
   }
 
   function toggleModalRemoveProject(id: string) {
@@ -133,12 +118,7 @@ export default function Projects({ listProject }: ProjectsProps) {
 
                 <div className="container-button">
                   <ModalButton
-                    isOpened={() => handleUpdateProject({
-                      id,
-                      name,
-                      project_url,
-                      banner
-                    })}
+                    isOpened={() => handleUpdateProject(id)}
                     backgroundColor={theme.colors.gold}
                     color={theme.colors.black}
                   >
@@ -161,6 +141,12 @@ export default function Projects({ listProject }: ProjectsProps) {
             toggleModal={toggleModalCreateProject}
             isOpened={isOpenedModalCreateProject}
             refreshListProject={refreshListProject}
+          />
+          <ModalUpdateProject
+            toggleModal={toggleModalUpdateProject}
+            isOpened={isOpenedModalUpdateProject}
+            refreshListProject={refreshListProject}
+            projectId={projectId}
           />
         </C.ContainerProjects>
       </>

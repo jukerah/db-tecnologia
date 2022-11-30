@@ -7,9 +7,11 @@ export const LabelInputFile = styled.label`
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 
   width: 100%;
   min-height: 170px;
+  max-height: 300px;
 
   cursor: pointer;
 
@@ -22,9 +24,10 @@ export const LabelInputFile = styled.label`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    position: absolute;
+
     gap: 16px;
     
-    position: absolute;
     opacity: .7;
 
     svg { transition: all 0.5s; }

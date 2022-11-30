@@ -30,8 +30,8 @@ export const Loading = styled.div`
     box-sizing: border-box;
 
     border: solid 16px transparent;
-    border-top-color: #1B1A70;
-    border-left-color: #2F3B87;
+    border-top-color: ${({ theme }) => theme.colors.luckPoint};
+    border-left-color: ${({ theme }) => theme.colors.bayOfMany};
     border-radius: 50%;
 
     animation: spinner 400ms linear infinite;

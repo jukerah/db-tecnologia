@@ -9,6 +9,10 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement>{
   filePreview?: string;
 }
 
+function myLoader({ src }){
+  return `${process.env.BACKEND_URL}/images/${src}`;
+};
+
 export function Input({ search, filePreview, ...rest }: InputProps) {
   if (rest.type === 'file') {
     return(
@@ -16,12 +20,10 @@ export function Input({ search, filePreview, ...rest }: InputProps) {
         {filePreview && (
           <Image
             src={filePreview}
+            loader={myLoader}
             alt="Foto do produto"
-            width={"800"}
-            height="228"
-            layout="fixed"
-            objectFit="cover"
-            objectPosition="center"
+            width={800}
+            height={228}
           />
         )}
         

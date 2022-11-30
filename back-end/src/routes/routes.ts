@@ -13,6 +13,7 @@ import { passwordRecoveryController } from '../controllers/user/PasswordRecovery
 
 import { createProjectController } from '../controllers/project/CreateEmployeeController';
 import { listProjectController } from '../controllers/project/ListProjectController';
+import { listProjectByIdController } from '../controllers/project/ListProjectById';
 import { updateProjectController } from '../controllers/project/UpdateProjectController';
 import { removeProjectController } from '../controllers/project/RemoveProjectController';
 
@@ -39,6 +40,7 @@ router.post('/password-recovery', passwordRecoveryController.handle);
 // Project
 router.post('/project', isAuthenticated, upload.single('file'), createProjectController.handle);
 router.get('/projects', listProjectController.handle);
+router.get(`/project/:id`, listProjectByIdController.handle);
 router.put('/project', isAuthenticated, upload.single('file'), updateProjectController.handle);
 router.delete('/project', isAuthenticated, removeProjectController.handle);
 
