@@ -19,6 +19,7 @@ import { removeProjectController } from '../controllers/project/RemoveProjectCon
 
 import { createEmployeeController } from '../controllers/employee/CreateEmployeeController';
 import { listEmployeeController } from '../controllers/employee/ListEmployeeController';
+import { listEmployeeByIdController } from '../controllers/employee/ListEmployeeById';
 import { updateEmployeeController } from '../controllers/employee/UpdateEmployeeController';
 import { removeEmployeeController } from '../controllers/employee/RemoveEmployeeController';
 
@@ -47,6 +48,7 @@ router.delete('/project', isAuthenticated, removeProjectController.handle);
 // Employee
 router.post('/employee', isAuthenticated, upload.single('file'), createEmployeeController.handle);
 router.get('/employees', listEmployeeController.handle);
+router.get(`/employee/:id`, listEmployeeByIdController.handle);
 router.put('/employee', isAuthenticated, upload.single('file'), updateEmployeeController.handle);
 router.delete('/employee', isAuthenticated, removeEmployeeController.handle);
 

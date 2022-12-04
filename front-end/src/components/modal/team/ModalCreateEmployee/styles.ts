@@ -23,10 +23,16 @@ export const ContainerForm = styled.div`
     width: 100%;
     gap: 16px;
 
-    label {
-        color: ${({ theme }) => theme.colors.white};
+    label, p {
         font-size: ${({ theme }) => theme.fontSizes.sm};
         font-weight: ${({ theme }) => theme.fontWeight.semiBold};
+    }
+
+    label { color: ${({ theme }) => theme.colors.white}; }
+    p {
+        width: 100%;
+        color: ${({ theme }) => theme.colors.gold};
+        text-align: center;
     }
 
     .container-input {

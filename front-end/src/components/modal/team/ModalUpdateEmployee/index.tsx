@@ -11,26 +11,59 @@ import { Input } from "../../../TextField";
 
 import { setupAPIClient } from "../../../../services/api";
 
-interface ModalCreateEmployeeProps {
+interface ModalUpdateEmployeeProps {
+  employeeId: string;
   isOpened: boolean;
   toggleModal: () => void;
   refreshListEmployee: () => void;
 }
 
-export default function ModalCreateEmployee({
+export default function ModalUpdateEmployee({
+  employeeId,
   isOpened,
   toggleModal,
   refreshListEmployee
-}: ModalCreateEmployeeProps) {
+}: ModalUpdateEmployeeProps) {
   const [ isLoading, setIsLoading ] = useState<boolean>(false);
   const [ employeeName, setEmployeeName ] = useState<string>('');
   const [ employeeLinkedin, setEmployeeLinkedin ] = useState<string>('');
   const [ employeePhoto, setEmployeePhoto ] = useState<File>(null);
   const [ employeePhotoPreview, setEmployeePhotoPreview ] = useState<string>('');
 
+  // useEffect(() => {
+  //   if (!isOpened) clearForm();
+  // }, [isOpened]);
+
   useEffect(() => {
     if (!isOpened) clearForm();
-  }, [isOpened]);
+
+    if (employeeId && isOpened) {
+      const employee = async () => {
+        setIsLoading(true);
+    
+        const apiClient = setupAPIClient();
+    
+        await apiClient.get(`employee/${employeeId}`)
+        .then((res) => {
+          const { name, linkedin, photo} = res.data;
+    
+          setEmployeeName(name);
+          setEmployeeLinkedin(linkedin);
+          setEmployeePhotoPreview(photo);
+        })
+        .catch((error) => {
+          console.log(error);
+          toast.error('Erro ao abrir colaborador, tente novamente mais tarde!');
+          toggleModal();
+          clearForm();
+        });
+    
+        setIsLoading(false);
+      }
+
+      employee();
+    }
+  }, [employeeId, isOpened, toggleModal]);
 
   function  validateForm() {
     if (employeeName === '' && employeeLinkedin === '' && employeePhoto === null) {
@@ -45,20 +78,17 @@ export default function ModalCreateEmployee({
       toast.error('Por favor, preencha o linkedin do colaborador!');
       return;
     }
-    if (employeePhoto === null) {
-      toast.error('Por favor, selecione a foto do colaborador!');
-      return;
-    }
     return true;
   }
 
-  async function handleCreateEmployee(event: FormEvent) {
+  async function handleUpdateEmployee(event: FormEvent) {
     event.preventDefault();
  
       const data = new FormData();
 
       if (!validateForm()) return
-
+      
+      data.append('id_employee', employeeId);
       data.append('name', employeeName);
       data.append('linkedin', employeeLinkedin);
       data.append('file', employeePhoto);
@@ -67,15 +97,15 @@ export default function ModalCreateEmployee({
 
       const apiClient = setupAPIClient();
 
-      await apiClient.post('employee', data)
+      await apiClient.put('employee', data)
       .then(() => {
         clearForm();
         refreshListEmployee();
         toggleModal();
-        toast.success('Colaborador cadastrado sucesso!');
+        toast.success('Colaborador salvo sucesso!');
       })
       .catch(() => {
-        toast.error('Erro ao cadastrar colaborador!');
+        toast.error('Erro ao salvar colaborador!');
       });
 
       setIsLoading(false);
@@ -107,7 +137,7 @@ export default function ModalCreateEmployee({
   }
 
   function handleCancel() {
-    clearForm()
+    clearForm();
     toggleModal();
   }
   
@@ -117,8 +147,8 @@ export default function ModalCreateEmployee({
       isOpened={isOpened}
       isLoading={isLoading}
     >
-      <C.Form onSubmit={handleCreateEmployee}>
-        <FormTitle>Cadastrar Colaborador</FormTitle>
+      <C.Form onSubmit={handleUpdateEmployee}>
+        <FormTitle>Editar Colaborador</FormTitle>
 
         <C.ContainerForm>
           <div className="container-input">
@@ -184,7 +214,7 @@ export default function ModalCreateEmployee({
               backgroundColor={theme.colors.aquamarine}
               color={theme.colors.black}
             >
-              Cadastrar
+              Salvar
             </PrimaryButton>
           </div>
         </C.ContainerForm>

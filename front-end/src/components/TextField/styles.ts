@@ -15,12 +15,14 @@ export const LabelInputFile = styled.label<LabelInputFileProps>`
   overflow: hidden;
 
   width: 100%;
+
   ${(props) => props.borderRadius && `
      min-width: 128px;
      max-width: 128px;
   `}
   min-height: ${(props) => props.borderRadius ? '128px' : '170px'};
-  max-height: 300px;
+  max-height: ${(props) => props.borderRadius ? '128px' : '300px'};
+
   cursor: pointer;
 
   input { display: none; }
@@ -56,6 +58,7 @@ export const LabelInputFile = styled.label<LabelInputFileProps>`
       min-width: 170px;
       max-width: 170px;
       min-height: 170px;
+      max-height: 170px;
 
       border-radius: 85px;
     `}

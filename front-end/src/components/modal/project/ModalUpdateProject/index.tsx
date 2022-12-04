@@ -181,6 +181,8 @@ export default function ModalUpdateProject({
               filePreview={projectBannerPreview}
               onChange={handleProjectBanner}
             />
+
+            <p>400 x 300px e máximo 2 MB</p>
           </div>
 
           <div className="container-button">

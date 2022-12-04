@@ -84,10 +84,14 @@ export default function ModalCreateProject({ isOpened, toggleModal, refreshListP
 
     if (!banner) return;
 
+    if (banner.size > 200000) {
+      toast.error('Tamanho da imagem deve possuir no máximo 2 MB!');
+      return;
+    }
+
     if (banner.type === 'image/jpg' || banner.type === 'image/jpeg' || banner.type === 'image/png') {
       setProjectBanner(banner);
       setProjectBannerPreview(URL.createObjectURL(e.target.files[0]));
-      console.log(projectBanner);
     }
   }
 
@@ -153,6 +157,8 @@ export default function ModalCreateProject({ isOpened, toggleModal, refreshListP
               filePreview={projectBannerPreview}
               onChange={handleProjectBanner}
             />
+
+            <p>400 x 300px e máximo 2 MB</p>
           </div>
 
           <div className="container-button">

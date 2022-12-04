@@ -64,6 +64,7 @@ export const GridEmployees = styled.div`
 
     @media (min-width: 1400px) {
         grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
     }
 `;
 

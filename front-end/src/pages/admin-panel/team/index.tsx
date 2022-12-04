@@ -11,6 +11,8 @@ import Header from "../../../components/Header";
 import { ModalButton } from "../../../components/button/ModalButton";
 import { Input } from "../../../components/TextField";
 import ModalCreateEmployee from "../../../components/modal/team/ModalCreateEmployee";
+import ModalUpdateEmployee from "../../../components/modal/team/ModalUpdateEmployee";
+import ModalRemoveEmployee from "../../../components/modal/team/ModalRemoveEmployee";
 
 interface EmployeeProps {
   id: string;
@@ -143,18 +145,18 @@ export default function Team({ listEmployee }: TeamProps) {
             isOpened={isOpenedModalCreateEmployee}
             refreshListEmployee={refreshListEmployee}
           />
-          {/* <ModalUpdateProject
+          <ModalUpdateEmployee
             toggleModal={toggleModalUpdateEmployee}
             isOpened={isOpenedModalUpdateEmployee}
             refreshListEmployee={refreshListEmployee}
             employeeId={employeeId}
           />
-          <ModalRemoveProject
+          <ModalRemoveEmployee
             toggleModal={toggleModalRemoveEmployee}
             isOpened={isOpenedModalRemoveEmployee}
             refreshListEmployee={refreshListEmployee}
             employeeId={employeeId}
-          /> */}
+          />
         </C.ContainerEmployees>
       </>
     </C.Employees>

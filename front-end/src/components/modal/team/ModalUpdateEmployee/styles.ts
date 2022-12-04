@@ -6,10 +6,12 @@ export const Form = styled.form`
     flex-direction: column;
 
     width: 100%;
+    max-width: 500px;
 
     gap: 8px;
 
     @media (min-width: 1024px) {
+        max-width: 700px;
         gap: 16px;
     }
 `;
@@ -21,16 +23,38 @@ export const ContainerForm = styled.div`
     width: 100%;
     gap: 16px;
 
-    label {
-        color: ${({ theme }) => theme.colors.white};
+    label, p {
         font-size: ${({ theme }) => theme.fontSizes.sm};
         font-weight: ${({ theme }) => theme.fontWeight.semiBold};
     }
 
+    label { color: ${({ theme }) => theme.colors.white}; }
+    p {
+        width: 100%;
+        color: ${({ theme }) => theme.colors.gold};
+        text-align: center;
+    }
+
     .container-input {
         display: flex;
+        gap: 16px;
         flex-direction: column;
-        gap: 8px;
+    }
+
+    .container-left, .input {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .container-left {
+        width: 100%;
+        gap: 16px;
+    }
+
+    .input { gap: 8px; }
+
+    .photo {
+        align-items: center;
     }
 
     .container-button {
@@ -39,10 +63,21 @@ export const ContainerForm = styled.div`
     }
 
     @media (min-width: 1024px) {
+        .container-input {
+            justify-content: space-between;
+            flex-direction: row;
+        }
+
+        .container-left { gap: 24px; }
+
+        .photo { align-items: start; }
+    }
+
+    @media (min-width: 1024px) {
         &, .container-button { gap: 24px; }
 
         label {
             font-size: ${({ theme }) => theme.fontSizes.md};
-=        }
+        }
     }
 `;

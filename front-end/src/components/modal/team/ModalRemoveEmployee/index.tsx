@@ -9,40 +9,40 @@ import { PrimaryButton } from "../../../button/PrimaryButton";
 
 import { setupAPIClient } from "../../../../services/api";
 
-interface ModalRemoveProjectProps {
-  projectId: string;
+interface ModalRemoveEmployeeProps {
+  employeeId: string;
   isOpened: boolean;
   toggleModal: () => void;
-  refreshListProject: () => void;
+  refreshListEmployee: () => void;
 }
 
 export default function ModalRemoveEmployee({
-  projectId,
+  employeeId,
   isOpened,
   toggleModal,
-  refreshListProject
-}: ModalRemoveProjectProps) {
+  refreshListEmployee
+}: ModalRemoveEmployeeProps) {
   const [ isLoading, setIsLoading ] = useState<boolean>(false);
 
-  async function handleCreateProject(event: FormEvent) {
+  async function handleCreateEmployee(event: FormEvent) {
     event.preventDefault();
       
     setIsLoading(true);
 
     const apiClient = setupAPIClient();
 
-    await apiClient.delete('project', {
+    await apiClient.delete('employee', {
       data: {
-        id_project: projectId
+        id_employee: employeeId
       }
     })
     .then(() => {
-      refreshListProject();
+      refreshListEmployee();
       toggleModal();
-      toast.success('Projeto deletado com sucesso!');
+      toast.success('Colaborador deletado com sucesso!');
     })
     .catch(() => {
-      toast.error('Erro ao deletar projeto!');
+      toast.error('Erro ao deletar colaborador!');
     });
 
     setIsLoading(false);
@@ -56,9 +56,9 @@ export default function ModalRemoveEmployee({
       isOpened={isOpened}
       isLoading={isLoading}
     >
-      <C.Form onSubmit={handleCreateProject}>
+      <C.Form onSubmit={handleCreateEmployee}>
         <C.ContainerForm>
-          <p>Deseja deletar o projeto?</p>
+          <p>Deseja deletar o colaborador?</p>
 
           <div className="container-button">
             <PrimaryButton
