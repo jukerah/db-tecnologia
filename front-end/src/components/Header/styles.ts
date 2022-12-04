@@ -12,13 +12,11 @@ export const Header = styled.header`
   height: 60px;
 
   top: 0;
-  padding: 0 16px 0 24px;
 
   &, .logo { transition: all ease-in .2s; }
 
   @media (min-width: 1024px) {
     height: 96px;
-    padding: 0 32px;
 
     .logo {
       width: 160px;
@@ -32,6 +30,12 @@ export const ContainerHeader = styled.div`
   justify-content: space-between;
   align-items: center;
 
-  width: 100%;  
+  width: 100%;
   max-width:1400px;
+
+  padding: 0 16px 0 24px;
+
+  @media (min-width: 1024px) {
+    padding: 0 32px;
+  }
 `;

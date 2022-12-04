@@ -11,8 +11,7 @@ export const StyledModal = Modal.styled`
   align-items: center;
   flex-direction: column;
 
-  width: 100%;
-  max-width: 500px;
+  width: auto;
   max-height: 100vh;
 
   padding: 16px 12px 16px 16px;

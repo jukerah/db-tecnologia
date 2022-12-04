@@ -14,7 +14,7 @@ const GlobalStyle = createGlobalStyle`
 
         &::-webkit-scrollbar {
             width: 8px;
-            background-color: ${theme.colors.white};
+            background-color: ${theme.colors.bayOfMany};
         }
 
         &::-webkit-scrollbar-thumb {

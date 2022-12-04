@@ -1,8 +1,13 @@
 import styled from 'styled-components';
 
-export const LabelInputFile = styled.label`
+interface LabelInputFileProps {
+  borderRadius: boolean;
+}
+
+export const LabelInputFile = styled.label<LabelInputFileProps>`
   background-color: ${({ theme }) => theme.colors.white};
   border: none;
+  border-radius: ${(props) => props.borderRadius ? '64px' : 0};
 
   display: flex;
   justify-content: center;
@@ -10,9 +15,12 @@ export const LabelInputFile = styled.label`
   overflow: hidden;
 
   width: 100%;
-  min-height: 170px;
+  ${(props) => props.borderRadius && `
+     min-width: 128px;
+     max-width: 128px;
+  `}
+  min-height: ${(props) => props.borderRadius ? '128px' : '170px'};
   max-height: 300px;
-
   cursor: pointer;
 
   input { display: none; }
@@ -41,6 +49,16 @@ export const LabelInputFile = styled.label`
   &:hover span svg {
     opacity: 1;
     transform: scale(2);
+  }
+
+  @media (min-width: 1024px) {
+    ${(props) => props.borderRadius && `
+      min-width: 170px;
+      max-width: 170px;
+      min-height: 170px;
+
+      border-radius: 85px;
+    `}
   }
 `;
 

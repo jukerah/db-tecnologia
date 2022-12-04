@@ -25,7 +25,7 @@ export default function AdminPanel() {
           <h1>Admin Panel</h1>
 
           <div className="container-button">
-            <NavegationButton url="/admin-panel/projets">
+            <NavegationButton url="/admin-panel/projects">
               <>
                 <AiOutlineFundProjectionScreen
                   size={32}

@@ -6,10 +6,12 @@ export const Form = styled.form`
     flex-direction: column;
 
     width: 100%;
+    max-width: 500px;
 
     gap: 8px;
 
     @media (min-width: 1024px) {
+        max-width: 700px;
         gap: 16px;
     }
 `;

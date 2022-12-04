@@ -30,33 +30,35 @@ export default function ModalUpdateProject({
   const [ projectBanner, setProjectBanner ] = useState<File>(null);
   const [ projectBannerPreview, setProjectBannerPreview ] = useState<string>('');
 
-  const apiClient = setupAPIClient();
-
-  const project = async () => {
-    setIsLoading(true);
-
-    await apiClient.get(`project/${projectId}`)
-    .then((res) => {
-      const { name, project_url, banner} = res.data;
-
-      setProjectName(name);
-      setProjectUrl(project_url);
-      setProjectBannerPreview(banner);
-    })
-    .catch(() => {
-      toast.error('Erro ao abrir projeto, tente novamente mais tarde!');
-      toggleModal();
-      clearForm();
-    });
-
-    setIsLoading(false);
-  }
-
   useEffect(() => {
     if (!isOpened) clearForm();
-    if (projectId && isOpened) project();
-  }, [projectId, isOpened]);
 
+    if (projectId && isOpened) {
+      const project = async () => {
+        setIsLoading(true);
+    
+        const apiClient = setupAPIClient();
+    
+        await apiClient.get(`project/${projectId}`)
+        .then((res) => {
+          const { name, project_url, banner} = res.data;
+    
+          setProjectName(name);
+          setProjectUrl(project_url);
+          setProjectBannerPreview(banner);
+        })
+        .catch(() => {
+          toast.error('Erro ao abrir projeto, tente novamente mais tarde!');
+          toggleModal();
+          clearForm();
+        });
+    
+        setIsLoading(false);
+      }
+
+      project();
+    }
+  }, [projectId, isOpened, toggleModal]);
 
   function  validateForm() {
     if (projectName === '' && projectUrl === '' && projectBanner === null) {
@@ -72,7 +74,7 @@ export default function ModalUpdateProject({
       return;
     }
     return true;
-  }
+  };
 
   async function handleCreateProject(event: FormEvent) {
     event.preventDefault();
@@ -87,6 +89,8 @@ export default function ModalUpdateProject({
       data.append('project_url', projectUrl);
       data.append('file', projectBanner);
 
+      const apiClient = setupAPIClient();
+
       await apiClient.put('project', data)
       .then(() => {
         clearForm();
@@ -95,12 +99,11 @@ export default function ModalUpdateProject({
         toast.success('Projeto salvo com sucesso!');
       })
       .catch((error) => {
-        console.log(error)
         toast.error('Erro ao salvar projeto!');
       });
 
       setIsLoading(false);
-  }
+  };
 
   function handleProjectBanner(e: ChangeEvent<HTMLInputElement>) {
     if (!e.target.files) return;
@@ -114,19 +117,19 @@ export default function ModalUpdateProject({
       setProjectBannerPreview(URL.createObjectURL(e.target.files[0]));
       console.log(projectBanner);
     }
-  }
+  };
 
   function clearForm() {
     setProjectName('');
     setProjectUrl('');
     setProjectBanner(null);
     setProjectBannerPreview('');
-  }
+  };
 
   function handleCancel() {
     clearForm()
     toggleModal();
-  }
+  };
   
   return (
     <Modal
