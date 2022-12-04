@@ -76,7 +76,7 @@ export default function Login() {
               color="black"
               disabled={isLoading}
             >
-              Entrar
+              <span>Entrar</span>
             </PrimaryButton>
 
             <Link

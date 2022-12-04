@@ -20,7 +20,7 @@ export function PrimaryButton({ loading, children, backgroundColor, color,  ...r
       {loading ? (
         <FaSpinner color={color} size={24} />
       ) : (
-        <a>{children}</a>
+        <>{children}</>
       )}
     </C.Button>
   );

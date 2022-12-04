@@ -12,7 +12,7 @@ export const Button = styled.button<ButtonProps>`
     width: 100%;
     height: 48px;   
 
-    a {
+    span, a {
         color: ${(props) => props.color};
         font-size: ${({ theme }) => theme.fontSizes.md};
         font-weight: ${({ theme }) => theme.fontWeight.bold};
@@ -28,6 +28,6 @@ export const Button = styled.button<ButtonProps>`
     @media (min-width: 1024px) {
         height: 56px;
 
-        a { font-size: ${({ theme }) => theme.fontSizes.lg}; }
+        span,  a { font-size: ${({ theme }) => theme.fontSizes.lg}; }
     }
 `;

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
-export const Title = styled.h1`
-    color: ${({ theme }) => theme.colors.sunflower};
+export const Title = styled.h2`
+    color: ${({ theme }) => theme.colors.cheese};
 
     font-size: ${({ theme }) => theme.fontSizes.lg};
     font-weight: ${({ theme }) => theme.fontWeight.bold};
@@ -10,7 +10,6 @@ export const Title = styled.h1`
     width: fit-content;
 
     padding-bottom: 8px;
-    margin-bottom: 8px;
 
     transition: all ease-in .2s;
 
@@ -45,6 +44,5 @@ export const Title = styled.h1`
 
     @media (min-width: 1024px) {
         font-size: ${({ theme }) => theme.fontSizes.tmd};
-        margin-bottom: 16px;
     }
 `;

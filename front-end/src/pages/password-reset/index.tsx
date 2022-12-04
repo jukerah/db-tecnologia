@@ -74,7 +74,7 @@ export default function ForgotPassword() {
               color="black"
               disabled={isLoading}
             >
-              Recuperar
+              <span>Recuperar</span>
             </PrimaryButton>
           </C.Form>
         </C.ContainerForm>

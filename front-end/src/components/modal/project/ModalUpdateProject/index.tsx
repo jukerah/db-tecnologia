@@ -192,14 +192,14 @@ export default function ModalUpdateProject({
               backgroundColor={theme.colors.coralRed}
               color={theme.colors.white}
             >
-              Cancelar
+              <span>Cancelar</span>
             </PrimaryButton>
             <PrimaryButton
               type="submit"
               backgroundColor={theme.colors.aquamarine}
               color={theme.colors.black}
             >
-              Salvar
+              <span>Salvar</span>
             </PrimaryButton>
           </div>
         </C.ContainerForm>

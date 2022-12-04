@@ -92,7 +92,7 @@ export default function SignUp() {
               color="black"
               disabled={isLoading}
             >
-              Cadastrar
+              <span>Cadastrar</span>
             </PrimaryButton>
           </C.Form>
         </C.ContainerForm>

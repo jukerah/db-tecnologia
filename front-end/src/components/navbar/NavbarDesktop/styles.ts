@@ -23,7 +23,7 @@ export const Navbar = styled.nav`
 
   .menu > li:nth-of-type(5) {
     margin-left: 32px;
-    .list-dropdown { margin-left: -60px; }
+    .list-dropdown { margin-left: -88px; }
   }
 
   .menu-item:hover { color: ${({ theme }) => theme.colors.cheese}; }

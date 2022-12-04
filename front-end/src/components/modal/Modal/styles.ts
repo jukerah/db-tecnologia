@@ -11,7 +11,7 @@ export const StyledModal = Modal.styled`
   align-items: center;
   flex-direction: column;
 
-  width: auto;
+  width: 100%;
   max-height: 100vh;
 
   padding: 16px 12px 16px 16px;
@@ -28,6 +28,10 @@ export const StyledModal = Modal.styled`
   }
 
   transition: all ease-in .2s;
+
+  @media (min-width: 550px) {
+    width: auto;
+  }
 
   @media (min-width: 1024px) {
     padding: 24px 20px 24px 24px;
