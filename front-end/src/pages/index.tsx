@@ -36,21 +36,33 @@ export default function Index() {
             <h1>Aqui você encontra a solução ideal para o seu negócio</h1>
 
             <div className={"social-media"}>
-              <Link href="https://www.facebook.com/" target="_blank">
+              <Link
+                aria-label="Facebook da DB Tecnologia"
+                href="https://www.facebook.com/"
+                target="_blank"
+              >
                 <BsFacebook
                   size={40}
                   color="#CCCCCC"
                 />
               </Link>
               
-              <Link href="https://www.instagram.com/" target="_blank">
+              <Link
+                aria-label="Instagram da DB Tecnologia"
+                href="https://www.instagram.com/"
+                target="_blank"
+              >
                 <BsInstagram
                   size={40}
                   color="#CCCCCC"
                 />
               </Link>
 
-              <Link href="https://api.whatsapp.com/send?phone=5512988229778" target="_blank">
+              <Link
+                aria-label="WhatSapp da DB Tecnologia"
+                href="https://api.whatsapp.com/send?phone=5512988229778"
+                target="_blank"
+              >
                 <BsWhatsapp
                   size={40}
                   color="#CCCCCC"

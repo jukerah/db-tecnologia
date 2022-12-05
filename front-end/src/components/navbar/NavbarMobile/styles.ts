@@ -110,13 +110,21 @@ interface DropdownProps {
 }
 
 export const Dropdown = styled.li<DropdownProps>`
-  a {
+  display: flex;
+  flex-direction: column;
+
+  a, button {
     display: flex;
     justify-content: center;
     align-items: center;
 
     gap: 8px;
     cursor: pointer;
+  }
+
+  button {
+    background: transparent;
+    border: none;
   }
 
   svg {
