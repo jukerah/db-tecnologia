@@ -6,10 +6,19 @@ import { theme } from "../styles/Theme";
 import { BsFacebook } from 'react-icons/bs';
 import { BsInstagram } from 'react-icons/bs';
 import { BsWhatsapp } from 'react-icons/bs';
+import { CgWebsite } from 'react-icons/cg';
+import { AiOutlinePlus } from 'react-icons/ai';
+import { BsPhone } from 'react-icons/bs';
+import { IoGameController } from 'react-icons/io5';
+import { GiArtificialIntelligence } from 'react-icons/gi';
+import { GiMonoWheelRobot } from 'react-icons/gi';
+import { BiSupport } from 'react-icons/bi';
 
 import Header from "../components/Header";
 import { PrimaryButton } from "../components/button/PrimaryButton";
 import TitlePitchBar from "../components/title/TitlePitchBar";
+import TitlePage from "../components/title/TitlePage";
+import TitleCard from "../components/title/TitleCard";
 
 export default function Index() {
   return (
@@ -62,22 +71,208 @@ export default function Index() {
 
           <C.PitchBar>
             <div className="container">
-              <div className="pitchbar-item">
+              <article className="pitchbar-item">
                 <TitlePitchBar>Tecnologias<br/>Mordernas</TitlePitchBar>
                 <p>A Qualidade de nossos serviços estão nas tecnologias aplicadas.</p>
-              </div>
+              </article>
 
-              <div className="pitchbar-item">
+              <article className="pitchbar-item">
                 <TitlePitchBar>Equipe<br/>Qualificada</TitlePitchBar>
                 <p>Nossa equipe é altamente treinada e sempre atualizada para trazer o melhor.</p>
-              </div>
+              </article>
 
-              <div className="pitchbar-item">
+              <article className="pitchbar-item">
                 <TitlePitchBar>Atendimento<br/>Personalizado</TitlePitchBar>
                 <p>DB Tecnologia traz um suporte impecável com solução imediata.</p>
-              </div>
+              </article>
             </div>
           </C.PitchBar>
+
+          <C.Services>
+            <div className="container">
+              <TitlePage><span>Conheça os nossos</span> principais produtos e serviços</TitlePage>
+
+              <div className="container-card">
+                <div className="card">
+                  <div className="card-header">
+                    <CgWebsite
+                      size={40}
+                      color={theme.colors.black}
+                    />
+
+                    <TitleCard>Criação de Sites Profissionais</TitleCard>
+                  </div>
+
+                  <div className="card-info">
+                    <p>Criação de  Sites, Blogs, Landing Pages, Lojas Virtuais, eCommerces com alta performance utilizando os padrões e tecnologias mais mordernas do mercado. Todos os projetos são únicos com foco para gerar mais resultados e conversões de vendas.</p>
+
+                    <Link href="/">
+                      <AiOutlinePlus
+                        size={20}
+                        color={theme.colors.black}
+                      />
+
+                      Mais detalhes
+                    </Link>
+                  </div>
+                </div>
+
+                <div className="card">
+                  <div className="card-header">
+                    <BsPhone
+                      size={40}
+                      color={theme.colors.black}
+                    />
+
+                    <TitleCard>Criação de Aplicativos</TitleCard>
+                  </div>
+
+                  <div className="card-info">
+                    <p>Criação de aplicativos para Android e IOS para Startups, empresas de médio e grande porte. Planejamento estrutural, desenvolvimento por etapas, suporte técnico e implementação de novas funcionalidades.</p>
+
+                    <Link href="/">
+                      <AiOutlinePlus
+                        size={20}
+                        color={theme.colors.black}
+                      />
+
+                      Mais detalhes
+                    </Link>
+                  </div>
+                </div>
+
+                <div className="card">
+                  <div className="card-header">
+                    <IoGameController
+                      size={40}
+                      color={theme.colors.black}
+                    />
+
+                    <TitleCard>Criação de Jogos</TitleCard>
+                  </div>
+
+                  <div className="card-info">
+                    <p>Criamos jogos com visual 3D ou em pixel arte. Prezamos pela alta qualidade em performance, suporte para melhorias e implementação de novas funcionalidades.</p>
+
+                    <Link href="/">
+                      <AiOutlinePlus
+                        size={20}
+                        color={theme.colors.black}
+                      />
+
+                      Mais detalhes
+                    </Link>
+                  </div>
+                </div>
+
+                <div className="card">
+                  <div className="card-header">
+                    <GiArtificialIntelligence
+                      size={40}
+                      color={theme.colors.black}
+                    />
+
+                    <TitleCard>IA - Inteligência Artificial</TitleCard>
+                  </div>
+
+                  <div className="card-info">
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+
+                    <Link href="/">
+                      <AiOutlinePlus
+                        size={20}
+                        color={theme.colors.black}
+                      />
+
+                      Mais detalhes
+                    </Link>
+                  </div>
+                </div>
+
+                <div className="card">
+                  <div className="card-header">
+                    <GiMonoWheelRobot
+                      size={40}
+                      color={theme.colors.black}
+                    />
+
+                    <TitleCard>Criação de Bots</TitleCard>
+                  </div>
+
+                  <div className="card-info">
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+
+                    <Link href="/">
+                      <AiOutlinePlus
+                        size={20}
+                        color={theme.colors.black}
+                      />
+
+                      Mais detalhes
+                    </Link>
+                  </div>
+                </div>
+
+                <div className="card">
+                  <div className="card-header">
+                    <BiSupport
+                      size={40}
+                      color={theme.colors.black}
+                    />
+
+                    <TitleCard>Suporte Especilizado</TitleCard>
+                  </div>
+
+                  <div className="card-info">
+                    <p>Prestamos suporte para clientes e terceiros, realizando melhorias em sites, aplicativos, jogos e etc.</p>
+
+                    <Link href="/">
+                      <AiOutlinePlus
+                        size={20}
+                        color={theme.colors.black}
+                      />
+
+                      Mais detalhes
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div className="pitchbar">
+              <div className="pitchbar-info">
+                <p>
+                  <span>+250</span>
+                  <br/>
+                  Clientes Atendidos
+                </p>
+                <p>
+                  <span>+200</span>
+                  <br/>
+                  Projetos Entregues
+                </p>
+                <p>
+                  <span>10</span>
+                  <br/>
+                  Anos de Experiência</p>
+                <p>
+                  <span>Equipe</span>
+                  <br/>
+                  100% Qualificada
+                </p>
+              </div>
+
+              <PrimaryButton
+                type="button"
+                backgroundColor={theme.colors.aquamarine}
+                color="black"
+              >
+                <Link href="/contato">
+                  Peça um orçamento
+                </Link>
+              </PrimaryButton>
+            </div>
+          </C.Services>
         </C.Pages>
       </C.Container>
     </C.Index>

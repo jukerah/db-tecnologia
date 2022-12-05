@@ -17,7 +17,11 @@ export const theme = {
     "placeholder": "#727272"
   },
   background: {
-    linearBlue: "radial-gradient(70.55% 70.55% at 37.46% 58.83%, rgba(20, 28, 65, 0.2) 0%, rgba(107, 106, 202, 0) 100%), radial-gradient(50.71% 132.54% at 67.93% 54.79%, rgba(251, 141, 83, 0.1) 0%, rgba(59, 219, 185, 0.1) 100%), radial-gradient(88.14% 230.36% at 2.39% 75.81%, rgba(31, 105, 205, 0.2) 0%, rgba(255, 99, 36, 0) 100%), #01072B"
+    linearBlue: "radial-gradient(70.55% 70.55% at 37.46% 58.83%, rgba(20, 28, 65, 0.2) 0%, rgba(107, 106, 202, 0) 100%), radial-gradient(50.71% 132.54% at 67.93% 54.79%, rgba(251, 141, 83, 0.1) 0%, rgba(59, 219, 185, 0.1) 100%), radial-gradient(88.14% 230.36% at 2.39% 75.81%, rgba(31, 105, 205, 0.2) 0%, rgba(255, 99, 36, 0) 100%), #01072B",
+    linearGray: "linear-gradient(180deg, #F5F6F8 0%, #FFFFFF 100%)"
+  },
+  shadows: {
+    sm: "0px 0px 8px rgba(27, 26, 112, 0.25)"
   },
   fontSizes: {
     "sm": "1rem",
