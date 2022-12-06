@@ -15,7 +15,7 @@ export default function NavbarDesktop() {
     <C.Navbar>
       <ul className="menu">
         <C.Dropdown>
-          <Link href={"/servicos"} className="menu-item">
+          <Link href={"/#services"} className="menu-item">
             Serviços
             <FiChevronDown />
           </Link>
@@ -63,17 +63,17 @@ export default function NavbarDesktop() {
           </ul>
         </C.Dropdown>
         <li>
-          <Link href={"/portfolio"} className="menu-item">
+          <Link href={"/#portfolio"} className="menu-item">
             Portfólio
           </Link>
         </li>
         <li>
-          <Link href={"/quem-somos"} className="menu-item">
+          <Link href={"/#quem-somos"} className="menu-item">
             Quem Somos
           </Link>
         </li>
         <li>
-          <Link href={"/contato"} className="menu-item">
+          <Link href={"/#contato"} className="menu-item">
             Contato
           </Link>
         </li>

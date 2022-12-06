@@ -9,6 +9,8 @@ export const Navbar = styled.nav`
     font-weight: ${({ theme }) => theme.fontWeight.regular};
   }
 
+  html, body { scroll-behavior: smooth; }
+
   .menu {
     display: flex;
     justify-content: space-between;

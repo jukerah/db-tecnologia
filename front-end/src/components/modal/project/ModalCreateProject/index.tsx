@@ -158,7 +158,7 @@ export default function ModalCreateProject({ isOpened, toggleModal, refreshListP
               onChange={handleProjectBanner}
             />
 
-            <p>400 x 300px e máximo 2 MB</p>
+            <p>640 x 360px e máximo 2 MB</p>
           </div>
 
           <div className="container-button">

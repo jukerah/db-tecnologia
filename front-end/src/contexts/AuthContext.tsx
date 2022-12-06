@@ -57,9 +57,9 @@ export function AuthProvider({ children }: AuthProviderProps) {
   }
 
   function signOut() {
-    try {
+    try { 
       destroyCookie(undefined, '@nextauth.token');
-      Router.push('/');
+      Router.push('/login');
       setIsAuthenticated(false);
     } catch (error) {
       console.log(error);

@@ -1,5 +1,6 @@
 import Head from "next/head";
 import * as C from "./styles";
+import { theme } from "../../styles/Theme";
 
 import { canSSRAuth } from "../../utils/canSSRAuth";
 
@@ -8,7 +9,6 @@ import { TbUsers } from 'react-icons/tb';
 
 import Header from "../../components/Header";
 import { NavegationButton } from "../../components/button/NavegationButton";
-import { theme } from "../../styles/Theme";
 
 export default function AdminPanel() {
   return (

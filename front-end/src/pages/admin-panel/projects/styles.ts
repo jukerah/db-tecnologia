@@ -79,7 +79,6 @@ export const Project = styled.div`
     flex-direction: column;
 
     width: 100%;
-    max-height: 400px;
 
     box-shadow: 0px 0px 8px rgba(27, 26, 112, 0.25);
 
