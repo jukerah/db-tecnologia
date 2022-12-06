@@ -196,7 +196,7 @@ export default function ModalUpdateEmployee({
                 onChange={handleEmployeePhoto}
               />
 
-              <p>170 x 170px<br/>máximo 1 MB</p>
+              <p>100 x 100px<br/>máximo 1 MB</p>
             </div>
           </div>
 

@@ -15,7 +15,7 @@ export default function NavbarDesktop() {
     <C.Navbar>
       <ul className="menu">
         <C.Dropdown>
-          <Link href={"/#services"} className="menu-item">
+          <Link href={"/#servicos"} className="menu-item">
             Serviços
             <FiChevronDown />
           </Link>

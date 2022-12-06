@@ -30,11 +30,19 @@ interface ProjectProps {
   banner: string;
 }
 
-interface ProjectsProps {
+interface EmployeeProps {
+  id: string;
+  name: string;
+  linkedin: string;
+  photo: string;
+}
+
+interface PageProps {
+  listEmployee: EmployeeProps[];
   listProject: ProjectProps[];
 }
 
-export default function Index({ listProject }: ProjectsProps) {
+export default function Index({ listProject, listEmployee }: PageProps) {
   const [ showProjects, setShowProjects ] = useState<number>(4);
 
   const totalProjects = listProject.length;
@@ -122,7 +130,7 @@ export default function Index({ listProject }: ProjectsProps) {
             </div>
           </C.PitchBar>
 
-          <C.Services id="services">
+          <C.Services id="servicos">
             <div className="container">
               <TitlePage><span>Conheça os nossos</span> principais produtos e serviços</TitlePage>
 
@@ -360,8 +368,55 @@ export default function Index({ listProject }: ProjectsProps) {
                 }
               </div>
             </div>
-            
           </C.Portfolio>
+
+          <C.AboutUs id="quem-somos">
+            <div className="container">
+              <TitlePage>Quem Somos</TitlePage>
+
+              <p className="about-company">Somos empresa especializada na implementação de soluções de alta qualidade e tecnologia em gestão empresarial, proporcionando diferencial competitivo para nossos clientes por meio do gerenciamento integrado e de acordo com as necessidades de cada organização. Atendemos nossos clientes com soluções Senior e complementares verticalizadas, integrando e gerando informações precisas e confiáveis para a gestão das organizações.</p>
+
+              <div className="team">
+                <div className="ceo">
+                  <Link
+                    aria-label={"Linkedin do colaborador ceo"}
+                    href="https://www.linkedin.com/in/deivid-bastos-b0366786"
+                    target="_blank"
+                  >
+                    <Image
+                      src={"/ceo.png"}
+                      alt={"Foto do ceo da empresa."}
+                      width={250}
+                      height={250}
+                    />
+                  </Link>
+
+                  <p className="about-ceo">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.</p>
+                </div>
+
+                <div className="list-employee">
+                  {listEmployee.map(({id, name, linkedin, photo}: EmployeeProps) => (
+                    <Link
+                      aria-label={`Linkedin do colaborador ${name}`}
+                      key={id}
+                      href={linkedin}
+                      target="_blank"
+                      className="employee"
+                    >
+                      <Image
+                        loader={myLoader}
+                        src={photo}
+                        alt={`Foto do colaborador ${name}`}
+                        width={128}
+                        height={128}
+                        priority
+                      />
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </C.AboutUs>
         </C.Pages>
       </C.Container>
     </C.Index>
@@ -372,10 +427,12 @@ export const getServerSideProps = async () => {
   const apiClient = setupAPIClient();
 
   const listProject = await apiClient.get('/projects');
+  const listEmployee = await apiClient.get('/employees');
 
   return {
     props: {
-      listProject: listProject.data
+      listProject: listProject.data,
+      listEmployee: listEmployee.data
     }
   }
 }

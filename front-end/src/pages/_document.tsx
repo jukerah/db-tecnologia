@@ -28,7 +28,7 @@ class MyDocument extends Document {
       <Html style={{scrollBehavior:'smooth'}}>
       <Head>
         <meta name="theme-color" content="#FFFFFF" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"></link>
       </Head>
         <body>
           <Main />

@@ -111,7 +111,7 @@ export default function NavbarMobile() {
           </C.Dropdown>
           <li>
             <Link
-              href={"/portfolio"}
+              href={"/#portfolio"}
               className="menu-item"
               onClick={() => setIsOpenedMenuMobile(false)}
             >
@@ -120,7 +120,7 @@ export default function NavbarMobile() {
           </li>
           <li>
             <Link
-              href={"/quem-somos"}
+              href={"/#quem-somos"}
               className="menu-item"
               onClick={() => setIsOpenedMenuMobile(false)}
             >
@@ -129,7 +129,7 @@ export default function NavbarMobile() {
           </li>
           <li>
             <Link
-              href={"/contato"}
+              href={"/#contato"}
               className="menu-item"
               onClick={() => setIsOpenedMenuMobile(false)}
             >
