@@ -10,9 +10,14 @@ export const Button = styled.button<ButtonProps>`
     border: none;
 
     width: 100%;
-    height: 48px;   
+    height: 48px;
 
     span, a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 16px;
+
         color: ${(props) => props.color};
         font-size: ${({ theme }) => theme.fontSizes.md};
         font-weight: ${({ theme }) => theme.fontWeight.bold};

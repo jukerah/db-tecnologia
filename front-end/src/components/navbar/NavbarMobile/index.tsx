@@ -28,12 +28,14 @@ export default function NavbarMobile() {
       <C.Navbar isOpened={isOpenedMenuMobile}>
         <ul className="menu">
           <C.Dropdown isOpened={isOpenedServices}>
-            <button
+            <Link
+              href={"/#servicos"}
+              className="dropdown-item"
               onClick={() => isOpenedServices ? setIsOpenedServices(false) : setIsOpenedServices(true)}
             >
               Serviços
               <FiChevronDown />
-            </button>
+            </Link>
             <ul className="list-dropdown">
             <li>
               <Link

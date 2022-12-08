@@ -1,4 +1,4 @@
-import { InputHTMLAttributes } from 'react';
+import { InputHTMLAttributes, TextareaHTMLAttributes } from 'react';
 import Image from 'next/image';
 import * as C from "./styles";
 
@@ -9,6 +9,7 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement>{
   search?: boolean;
   borderRadius?: boolean;
   filePreview?: string;
+  alert?: boolean;
 }
 
 function myLoader({ src }){
@@ -19,6 +20,7 @@ export function Input({
   search,
   filePreview,
   borderRadius,
+  alert,
   ...rest
 }: InputProps) {
   if (rest.type === 'file') {
@@ -54,7 +56,23 @@ export function Input({
     );
   } else {
     return(
-      <C.TextField {...rest} search={search} />
+      <C.TextField
+        alert={alert} {...rest}
+        search={search}
+      />
     );
   }
+}
+
+interface TextAreaProps extends TextareaHTMLAttributes<HTMLTextAreaElement>{
+  alert?: boolean;
+}
+
+export function TextArea({ alert, ...rest }: TextAreaProps) {
+  return(
+    <C.TextArea
+      alert={alert}
+      {...rest}
+    ></C.TextArea>
+  );
 }

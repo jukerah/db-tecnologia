@@ -1,9 +1,10 @@
-import { useState, useEffect } from 'react';
+import { useState, FormEvent } from 'react';
 import Head from "next/head";
 import Link from "next/link";
 import Image from 'next/image';
 import * as C from "../styles/index";
 import { theme } from "../styles/Theme";
+import { toast } from 'react-toastify';
 
 import { BsFacebook } from 'react-icons/bs';
 import { BsInstagram } from 'react-icons/bs';
@@ -15,13 +16,17 @@ import { IoGameController } from 'react-icons/io5';
 import { GiArtificialIntelligence } from 'react-icons/gi';
 import { GiMonoWheelRobot } from 'react-icons/gi';
 import { BiSupport } from 'react-icons/bi';
+import { FiMail } from 'react-icons/fi';
+import { FiSend } from 'react-icons/fi';
+
+import { setupAPIClient } from "../services/api";
 
 import Header from "../components/Header";
 import { PrimaryButton } from "../components/button/PrimaryButton";
 import TitlePitchBar from "../components/title/TitlePitchBar";
 import TitlePage from "../components/title/TitlePage";
 import TitleCard from "../components/title/TitleCard";
-import { setupAPIClient } from "../services/api";
+import { Input, TextArea } from '../components/TextField';
 
 interface ProjectProps {
   id: string;
@@ -44,12 +49,56 @@ interface PageProps {
 
 export default function Index({ listProject, listEmployee }: PageProps) {
   const [ showProjects, setShowProjects ] = useState<number>(4);
-
   const totalProjects = listProject.length;
+
+  const [ contactName, setContactName ] = useState<string>("");
+  const [ alertContactName, setAlertContactName ] = useState<boolean>(false);
+  const [ contactMessage, setContactMessage ] = useState<string>("");
+  const [ alertContactMessage, setAlertContactMessage ] = useState<boolean>(false);
+
+  const phone = "+55 12 98822-9778";
+  const email = "exemplo@exemplo.com";
 
   function myLoader({ src }){
     return `${process.env.BACKEND_URL}/images/${src}`;
   };
+
+  function validatedContactForm() {
+    if (contactName === "" && contactMessage === "") {
+      setAlertContactName(true);
+      setAlertContactMessage(true);
+      toast.error('Por favor, preencha o campos nome e mensagem!');
+      return false;
+    }
+    if (contactName === "") {
+      setAlertContactName(true);
+      toast.error('Por favor, preencha o campo nome!');
+      return false;
+    }
+    if (contactMessage === "") {
+      setAlertContactMessage(true);
+      toast.error('Por favor, preencha o campo mensagem!');
+      return false;
+    }
+    return true;
+  };
+
+  function handleClickContactForm(event: FormEvent) {
+    event.preventDefault();
+
+    if (!validatedContactForm()) return;
+
+    const convertedPhone = phone
+      .replaceAll("+", "")
+      .replaceAll(" ", "")
+      .replaceAll("-", "");
+
+    const convertedMessage = encodeURIComponent(`Olá meu nome é ${contactName}, ${contactMessage}`);
+
+    setContactName('');
+    setContactMessage('');
+    window.open(`https://api.whatsapp.com/send?phone=${convertedPhone}&text=${convertedMessage}`, '_blank');
+  }
 
   return (
     <C.Index>
@@ -73,7 +122,7 @@ export default function Index({ listProject, listEmployee }: PageProps) {
               >
                 <BsFacebook
                   size={40}
-                  color="#CCCCCC"
+                  color={theme.colors.grayLight}
                 />
               </Link>
               
@@ -84,7 +133,7 @@ export default function Index({ listProject, listEmployee }: PageProps) {
               >
                 <BsInstagram
                   size={40}
-                  color="#CCCCCC"
+                  color={theme.colors.grayLight}
                 />
               </Link>
 
@@ -95,7 +144,7 @@ export default function Index({ listProject, listEmployee }: PageProps) {
               >
                 <BsWhatsapp
                   size={40}
-                  color="#CCCCCC"
+                  color={theme.colors.grayLight}
                 />
               </Link>
             </div>
@@ -103,10 +152,10 @@ export default function Index({ listProject, listEmployee }: PageProps) {
             <PrimaryButton
               type="button"
               backgroundColor={theme.colors.cheese}
-              color="black"
+              color={theme.colors.black}
             >
               <Link href="/contato">
-                Peça um orçamento
+                Iniciar Conversa
               </Link>
             </PrimaryButton>
           </C.Home>
@@ -307,7 +356,7 @@ export default function Index({ listProject, listEmployee }: PageProps) {
               <PrimaryButton
                 type="button"
                 backgroundColor={theme.colors.aquamarine}
-                color="black"
+                color={theme.colors.black}
               >
                 <Link href="/contato">
                   Peça um orçamento
@@ -407,8 +456,8 @@ export default function Index({ listProject, listEmployee }: PageProps) {
                         loader={myLoader}
                         src={photo}
                         alt={`Foto do colaborador ${name}`}
-                        width={128}
-                        height={128}
+                        width={100}
+                        height={100}
                         priority
                       />
                     </Link>
@@ -417,6 +466,117 @@ export default function Index({ listProject, listEmployee }: PageProps) {
               </div>
             </div>
           </C.AboutUs>
+
+          <C.Contact id="contato">
+            <div className="container">
+              <TitlePage>Fale com a gente</TitlePage>
+
+              <div className="contact">
+                <div className="container-info">
+                  <p className="description">Entre em contato através do formulário ou através de um de nossos contatos. Responderemos o mais rápido possível.</p>
+
+                  <div className="commercial-service">
+                    <h2>Atendimento Comercial</h2>
+                    <p>Segunda a Sexta – 09:00 às 18:00</p>
+                    <p>Sábado – 09:00 às 13:00</p>
+                  </div>
+
+                  <div className="contact-details">
+                    <Link
+                      href={`tel:${phone}`}
+                      target="_blank"
+                      className="detail-item"
+                    >
+                      <BsWhatsapp
+                        size={24}
+                        color={theme.colors.black}
+                      />
+                      {phone}
+                    </Link>
+
+                    <Link
+                      href={`mailto:${email}`}
+                      target="_blank"
+                      className="detail-item"
+                    >
+                      <FiMail
+                        size={24}
+                        color={theme.colors.black}
+                      />
+                      {email}
+                    </Link>
+                  </div>
+                </div>
+
+                <form
+                  onSubmit={handleClickContactForm} 
+                  className="contact-form"
+                >
+                  <div className="container-input">
+                    <label htmlFor="contact-name">Nome:</label>
+
+                    <Input
+                      type="text"
+                      id="contact-name"
+                      name="contact-name"
+                      aria-label="Nome"
+                      placeholder="Digite o seu nome"
+                      value={contactName}
+                      onChange={(e) => {
+                        setAlertContactName(false);
+                        setContactName(e.target.value)
+                      }}
+                      alert={alertContactName}
+                    />
+
+                    {alertContactName &&
+                      <p className="alert">
+                        Por favor, digite o seu nome!
+                      </p>
+                    }
+
+                  </div>
+
+                  <div className="container-input">
+                    <label htmlFor="contact-name">Mensagem:</label>
+
+                    <TextArea
+                      id="contact-message"
+                      name="contact-message"
+                      aria-label="Mensagem"
+                      placeholder="Digite o sua mensagem"
+                      value={contactMessage}
+                      onChange={(e) => {
+                        setAlertContactMessage(false);
+                        setContactMessage(e.target.value)
+                      }}
+                      alert={alertContactMessage}
+                    />
+
+                    {alertContactMessage &&
+                      <p className="alert">
+                        Por favor, digite o sua mensagem!
+                      </p>
+                    }
+                  </div>
+
+                  <PrimaryButton
+                    type="submit"
+                    backgroundColor={theme.colors.luckPoint}
+                    color={theme.colors.white}
+                  >
+                    <span>
+                      Iniciar Conversa
+                      <FiSend
+                      size={24}
+                      color={theme.colors.white}
+                    />
+                    </span>
+                  </PrimaryButton>
+                </form>
+              </div>
+            </div>
+          </C.Contact>
         </C.Pages>
       </C.Container>
     </C.Index>

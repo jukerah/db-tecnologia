@@ -14,7 +14,7 @@ export const theme = {
     "luckPoint": "#1B1A70",
     "bayOfMany": "#2F3B87",
     "gray": "#4D4D4D",
-    "grayLight": "#e2e2e2",
+    "grayLight": "#CCCCCC",
     "placeholder": "#727272"
   },
   background: {
