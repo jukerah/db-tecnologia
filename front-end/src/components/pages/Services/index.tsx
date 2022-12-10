@@ -6,8 +6,7 @@ import { CgWebsite } from 'react-icons/cg';
 import { AiOutlinePlus } from 'react-icons/ai';
 import { BsPhone } from 'react-icons/bs';
 import { IoGameController } from 'react-icons/io5';
-import { GiArtificialIntelligence } from 'react-icons/gi';
-import { GiMonoWheelRobot } from 'react-icons/gi';
+import { GiArtificialIntelligence, GiMonoWheelRobot } from 'react-icons/gi';
 import { BiSupport } from 'react-icons/bi';
 
 import TitlePage from "../../title/TitlePage";

@@ -3,9 +3,7 @@ import Link from "next/link";
 import * as C from "./styles";
 import { theme } from "../../../styles/Theme";
 
-import { BsFacebook } from 'react-icons/bs';
-import { BsInstagram } from 'react-icons/bs';
-import { BsWhatsapp } from 'react-icons/bs';
+import { BsFacebook, BsInstagram, BsWhatsapp } from 'react-icons/bs';
 
 import { PrimaryButton } from "../../button/PrimaryButton";
 import TitlePitchBar from "../../title/TitlePitchBar";
@@ -16,7 +14,7 @@ export default function Home() {
       <C.Home>
         <h1>Aqui você encontra a solução ideal para o seu negócio</h1>
 
-        <div className={"social-media"}>
+        <div className="social-media">
           <Link
             aria-label="Facebook da DB Tecnologia"
             href="https://www.facebook.com/"

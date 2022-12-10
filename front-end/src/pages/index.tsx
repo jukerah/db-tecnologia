@@ -9,6 +9,7 @@ import Services from '../components/pages/Services';
 import Portfolio from '../components/pages/Portfolio';
 import AboutUs from '../components/pages/AboutUs';
 import Contact from '../components/pages/Contact';
+import Footer from "../components/Footer";
 
 interface ProjectProps {
   id: string;
@@ -30,6 +31,9 @@ interface PageProps {
 }
 
 export default function Index({ listProject, listEmployee }: PageProps) {
+  const phone = "+55 12 98822-9778";
+  const email = "exemplo@exemplo.com";
+  
   return (
     <C.Index>
       <Head>
@@ -49,8 +53,16 @@ export default function Index({ listProject, listEmployee }: PageProps) {
 
           <AboutUs listEmployee={listEmployee} />
 
-          <Contact />
+          <Contact
+            phone={phone}
+            email={email}
+          />
         </C.Pages>
+
+        <Footer
+          phone={phone}
+          email={email}
+        />
       </C.Container>
     </C.Index>
   )

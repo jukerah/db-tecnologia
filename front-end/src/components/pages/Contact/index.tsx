@@ -5,21 +5,22 @@ import { theme } from "../../../styles/Theme";
 import { toast } from 'react-toastify';
 
 import { BsWhatsapp } from 'react-icons/bs';
-import { FiMail } from 'react-icons/fi';
-import { FiSend } from 'react-icons/fi';
+import { FiMail, FiSend } from 'react-icons/fi';
 
 import { PrimaryButton } from "../../button/PrimaryButton";
 import TitlePage from "../../title/TitlePage";
 import { Input, TextArea } from '../../TextField';
 
-export default function Contact() {
+interface PageProps {
+  phone: string;
+  email: string;
+}
+
+export default function Contact({phone, email }: PageProps) {
   const [ contactName, setContactName ] = useState<string>("");
   const [ alertContactName, setAlertContactName ] = useState<boolean>(false);
   const [ contactMessage, setContactMessage ] = useState<string>("");
   const [ alertContactMessage, setAlertContactMessage ] = useState<boolean>(false);
-
-  const phone = "+55 12 98822-9778";
-  const email = "exemplo@exemplo.com";
 
   function validatedContactForm() {
     if (contactName === "" && contactMessage === "") {
