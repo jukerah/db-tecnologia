@@ -65,15 +65,15 @@ export default function Footer({ phone, email }: FooterProps) {
 
         <div className="container">
           <h2>Serviços</h2>
-          <Link href="/#quem-somos">&gt; Site Institucional</Link>
-          <Link href="/#portfolio">&gt; Loja Virtual</Link>
-          <Link href="/">&gt; eCommerce</Link>
-          <Link href="/">&gt; Landing Page</Link>
-          <Link href="/">&gt; IA - Inteligência Antificial</Link>
-          <Link href="/">&gt; Bots</Link>
-          <Link href="/">&gt; Blogs</Link>
-          <Link href="/">&gt; Jogos</Link>
-          <Link href="/">&gt; Aplicativos</Link>
+          <Link href="/site-institucional">&gt; Site Institucional</Link>
+          <Link href="/loja-virtual">&gt; Loja Virtual</Link>
+          <Link href="/ecommerce">&gt; eCommerce</Link>
+          <Link href="/landing-page">&gt; Landing Page</Link>
+          <Link href="/inteligencia-artificial">&gt; IA - Inteligência Antificial</Link>
+          <Link href="/bots">&gt; Bots</Link>
+          <Link href="/blogs">&gt; Blogs</Link>
+          <Link href="/jogos">&gt; Jogos</Link>
+          <Link href="/aplicativos">&gt; Aplicativos</Link>
         </div>
 
         <div className="container">
