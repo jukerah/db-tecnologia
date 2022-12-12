@@ -1,0 +1,57 @@
+{
+  "short_name": "Weather",
+  "name": "Weather: Do I need an umbrella?",
+  "icons": [
+    {
+      "src": "/favicon-32x32.png",
+      "type": "image/png",
+      "sizes": "32x32"
+    },
+    {
+      "src": "/favicon-64x64.png",
+      "type": "image/png",
+      "sizes": "64x64"
+    },
+    {
+      "src": "/favicon-128x128.png",
+      "type": "image/png",
+      "sizes": "128x128"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#FFFFFF",
+  "display": "standalone",
+  "scope": "/",
+  "theme_color": "#FFFFFF",
+  "shortcuts": [
+    {
+      "name": "DB Tecnologia - Serviços",
+      "short_name": "Serviços",
+      "description": "Criação de Sites Profissionais, Criação de Aplicativos, Criação de Jogos, IA - Inteligência Artificial, Criação de Bots e Suporte Especilizado.",
+      "url": "/servicos",
+      "icons": [{ "src": "/favicon-128x128.png", "sizes": "128x128" }]
+    },
+    {
+      "name": "DB Tecnologia - Portfólio",
+      "short_name": "Portfólio",
+      "description": "Confira alguns dos websites desenvolvidos recentemente por nós.",
+      "url": "/servicos",
+      "icons": [{ "src": "/favicon-128x128.png", "sizes": "128x128" }]
+    },
+    {
+      "name": "DB Tecnologia - Quem Somos",
+      "short_name": "Quem Somos",
+      "description": "Somos empresa especializada na implementação de soluções de alta qualidade e tecnologia em gestão empresarial, proporcionando diferencial competitivo para nossos clientes.",
+      "url": "/servicos",
+      "icons": [{ "src": "/favicon-128x128.png", "sizes": "128x128" }]
+    },
+    {
+      "name": "DB Tecnologia - Contato",
+      "short_name": "Contato",
+      "description": "Entre em contato através do formulário ou através de um de nossos contatos.",
+      "url": "/servicos",
+      "icons": [{ "src": "/favicon-128x128.png", "sizes": "128x128" }]
+    }
+  ],
+  "description": "Aqui você encontra a solução ideal para o seu negócio."
+}

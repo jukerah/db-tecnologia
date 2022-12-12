@@ -37,78 +37,78 @@ export default function NavbarMobile() {
               <FiChevronDown />
             </Link>
             <ul className="list-dropdown">
-            <li>
-              <Link
-                href={"/site"}
-                className="dropdown-item"
-                onClick={() => setIsOpenedMenuMobile(false)}
-              >
-                Site Institucional
-              </Link>
-            </li>
-            <li>
-              <Link
-                href={"/loja-virtual"}
-                className="dropdown-item"
-                onClick={() => setIsOpenedMenuMobile(false)}
-              >
-                Loja Virtual
-              </Link>
-            </li>
-            <li>
-              <Link
-                href={"/ecommerce"}
-                className="dropdown-item"
-                onClick={() => setIsOpenedMenuMobile(false)}
-              >
-                eCommerce
-              </Link>
-            </li>
-            <li>
-              <Link
-                href={"/landing-page"}
-                className="dropdown-item"
-                onClick={() => setIsOpenedMenuMobile(false)}
-              >
-                Landing Page
-              </Link>
-            </li>
-            <li>
-              <Link
-                href={"/inteligencia-artificial"}
-                className="dropdown-item"
-                onClick={() => setIsOpenedMenuMobile(false)}
-              >
-                IA - Inteligência Artificial
-              </Link>
-            </li>
-            <li>
-              <Link
-                href={"/bots"}
-                className="dropdown-item"
-                onClick={() => setIsOpenedMenuMobile(false)}
-              >
-                Bots
-              </Link>
-            </li>
-            <li>
-              <Link
-                href={"/blogs"}
-                className="dropdown-item"
-                onClick={() => setIsOpenedMenuMobile(false)}
-              >
-                Blogs
-              </Link>
-            </li>
-            <li>
-              <Link
-                href={"/aplicativos"}
-                className="dropdown-item"
-                onClick={() => setIsOpenedMenuMobile(false)}
-              >
-                Aplicativos
-              </Link>
-            </li>
+              <li>
+                <Link
+                  href={"/site"}
+                  className="dropdown-item"
+                  onClick={() => setIsOpenedMenuMobile(false)}
+                >
+                  Site Institucional
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href={"/loja-virtual"}
+                  className="dropdown-item"
+                  onClick={() => setIsOpenedMenuMobile(false)}
+                >
+                  Loja Virtual
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href={"/ecommerce"}
+                  className="dropdown-item"
+                  onClick={() => setIsOpenedMenuMobile(false)}
+                >
+                  eCommerce
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href={"/landing-page"}
+                  className="dropdown-item"
+                  onClick={() => setIsOpenedMenuMobile(false)}
+                >
+                  Landing Page
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href={"/inteligencia-artificial"}
+                  className="dropdown-item"
+                  onClick={() => setIsOpenedMenuMobile(false)}
+                >
+                  IA - Inteligência Artificial
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href={"/bots"}
+                  className="dropdown-item"
+                  onClick={() => setIsOpenedMenuMobile(false)}
+                >
+                  Bots
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href={"/blogs"}
+                  className="dropdown-item"
+                  onClick={() => setIsOpenedMenuMobile(false)}
+                >
+                  Blogs
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href={"/aplicativos"}
+                  className="dropdown-item"
+                  onClick={() => setIsOpenedMenuMobile(false)}
+                >
+                  Aplicativos
+                </Link>
+              </li>
             </ul>
           </C.Dropdown>
           <li>

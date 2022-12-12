@@ -5,6 +5,7 @@ import { UpdateProjectService } from "../../services/project/UpdateProjectServic
 class UpdateProjectController {
   async handle(req: Request, res: Response) {
     const { id_project, name, project_url } = req.body;
+    const bannerFile = req.file;
 
     if (!id_project) throw new Error("ID is required!");
     if (!name) throw new Error("Name is required!");
@@ -20,14 +21,15 @@ class UpdateProjectController {
     
     const updateProjectService = new UpdateProjectService();
 
-    if (req.file) {
-      const { filename: banner } = req.file;
+    if (bannerFile) {
+      const { filename: bannerName } = req.file;
 
       const project = await updateProjectService.execute({
         id_project,
         name,
         project_url,
-        banner
+        bannerName,
+        bannerFile
       });
 
       return res.json(project);

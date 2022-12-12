@@ -4,19 +4,21 @@ import { CreateProjectService } from "../../services/project/CreateProjectServic
 class CreateProjectController {
   async handle(req: Request, res: Response) {
     const { name, project_url } = req.body;
+    const bannerFile = req.file;
 
     if (!name) throw new Error("Name is required!");
     if (!project_url) throw new Error("Project URL is required!");
-    if (!req.file) throw new Error("Banner is required!");
+    if (!bannerFile) throw new Error("Banner is required!");
 
     const createProjectService = new CreateProjectService();
 
-    const { filename: banner } = req.file;
+    const { filename: bannerName } = req.file;
 
     const project = await createProjectService.execute({
       name,
       project_url,
-      banner
+      bannerName,
+      bannerFile
     });
 
     return res.json(project);

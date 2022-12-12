@@ -179,7 +179,7 @@ export default function Services() {
             Projetos Entregues
           </p>
           <p>
-            <span>10</span>
+            <span>+10</span>
             <br/>
             Anos de Experiência</p>
           <p>

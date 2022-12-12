@@ -1,5 +1,5 @@
 import prismaClient from "../../prisma";
-import fs from 'fs';
+import S3Storage from "../../utils/S3Storage";
 
 interface ProjectRequest {
   id_project: string;
@@ -13,8 +13,8 @@ class RemoveProjectService {
       }
     });
 
-    const filePath = `./tmp/${project.banner}`;
-    fs.unlinkSync(filePath);
+    const s3 = new S3Storage();
+    await s3.deleteFile(project.banner);
 
     return project;
   }

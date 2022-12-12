@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import prismaClient from "../../prisma";
-import { UpdateUserService } from '../../services/user/UpdateUserService';
+import { UpdateUserService } from "../../services/user/UpdateUserService";
 
 class UpdateUserController {
   async handle(req: Request, res: Response) {

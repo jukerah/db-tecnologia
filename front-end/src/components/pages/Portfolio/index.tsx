@@ -23,7 +23,7 @@ export default function Portfolio({ listProject }: PageProps) {
   const totalProjects = listProject.length;
 
   function myLoader({ src }){
-    return `${process.env.BACKEND_URL}/images/${src}`;
+    return `https://db-tecnologia-images.s3.amazonaws.com/${src}`;
   };
 
   return (
@@ -54,7 +54,6 @@ export default function Portfolio({ listProject }: PageProps) {
                   alt={`Banner do projeto ${name}`}
                   width={400}
                   height={225}
-                  priority
                 />
                 <span>Ver o projeto</span>
               </Link>

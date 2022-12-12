@@ -27,8 +27,17 @@ export const Button = styled.button<ButtonProps>`
         filter: brightness(1.2);
         cursor: pointer;
     }
+    
+    .loading { animation: rotation 2s infinite; }
 
-    svg { animation: rotation 2s infinite; }
+    @keyframes rotation {
+        from {
+            transform: rotate(0deg);
+        }
+        to {
+            transform: rotate(360deg);
+        }
+    }
 
     @media (min-width: 1024px) {
         height: 56px;

@@ -17,7 +17,7 @@ interface PageProps {
 
 export default function AboutUs({ listEmployee }: PageProps) {
   function myLoader({ src }){
-    return `${process.env.BACKEND_URL}/images/${src}`;
+    return `https://db-tecnologia-images.s3.amazonaws.com/${src}`;
   };
 
   return (

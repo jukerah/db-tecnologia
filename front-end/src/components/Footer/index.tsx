@@ -13,7 +13,6 @@ interface FooterProps {
 export default function Footer({ phone, email }: FooterProps) {
   const date = new Date()
   const currentYear = date.getFullYear();
-  console.log(currentYear);
 
   return (
     <C.Footer>

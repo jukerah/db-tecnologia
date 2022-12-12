@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  pageExtensions: ['page.tsx', 'page.ts', 'page.jsx', 'page.js'],
   reactStrictMode: true,
   swcMinify: true,
   i18n: {
@@ -10,7 +11,7 @@ const nextConfig = {
     styledComponents: true
   },
   env: {
-    BACKEND_URL: "http://localhost:3333"
+    BACKEND_URL: "https://db-tecnologia.herokuapp.com"
   }
 }
 
