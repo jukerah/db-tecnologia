@@ -55,7 +55,7 @@ export default function Home() {
           color={theme.colors.black}
         >
           <Link href="/contato">
-            Iniciar Conversa
+            Peça um orçamento
           </Link>
         </PrimaryButton>
       </C.Home>

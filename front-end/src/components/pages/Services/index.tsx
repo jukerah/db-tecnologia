@@ -33,13 +33,13 @@ export default function Services() {
             <div className="card-info">
               <p>Criação de  Sites, Blogs, Landing Pages, Lojas Virtuais, eCommerces com alta performance utilizando os padrões e tecnologias mais mordernas do mercado. Todos os projetos são únicos com foco para gerar mais resultados e conversões de vendas.</p>
 
-              <Link href="/">
-                <AiOutlinePlus
+              <Link href="/#contato">
+                {/* <AiOutlinePlus
                   size={20}
                   color={theme.colors.black}
-                />
+                /> */}
 
-                Mais detalhes
+                Peça um orçamento
               </Link>
             </div>
           </div>
@@ -57,13 +57,13 @@ export default function Services() {
             <div className="card-info">
               <p>Criação de aplicativos para Android e IOS para Startups, empresas de médio e grande porte. Planejamento estrutural, desenvolvimento por etapas, suporte técnico e implementação de novas funcionalidades.</p>
 
-              <Link href="/">
-                <AiOutlinePlus
+              <Link href="/#contato">
+                {/* <AiOutlinePlus
                   size={20}
                   color={theme.colors.black}
-                />
+                /> */}
 
-                Mais detalhes
+                Peça um orçamento
               </Link>
             </div>
           </div>
@@ -79,15 +79,15 @@ export default function Services() {
             </div>
 
             <div className="card-info">
-              <p>Criamos jogos com visual 3D ou em pixel arte. Prezamos pela alta qualidade em performance, suporte para melhorias e implementação de novas funcionalidades.</p>
+              <p>Temos experiência em todos os mecanismos populares de desenvolvimento de jogos para dispositivos moveis ou desktops com recursos em 2D, isométricos e 3D. Prezamos pela experiência de jogo perfeito, garantimos que ele funcione mesmo após o lançamento,  com foco para serem divertidos de jogar e viciantes.</p>
 
-              <Link href="/">
-                <AiOutlinePlus
+              <Link href="/#contato">
+                {/* <AiOutlinePlus
                   size={20}
                   color={theme.colors.black}
-                />
+                /> */}
 
-                Mais detalhes
+                Peça um orçamento
               </Link>
             </div>
           </div>
@@ -103,15 +103,15 @@ export default function Services() {
             </div>
 
             <div className="card-info">
-              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+              <p>Automatizamos suas atividades e impulsionamos suas forças de trabalho com otimização de processos e geração de receita. Os serviços de inteligência artificial se integram a suas aplicações e lidam da melhor forma possível de acordo com suas necessidades.</p>
 
-              <Link href="/">
-                <AiOutlinePlus
+              <Link href="/#contato">
+                {/* <AiOutlinePlus
                   size={20}
                   color={theme.colors.black}
-                />
+                /> */}
 
-                Mais detalhes
+                Peça um orçamento
               </Link>
             </div>
           </div>
@@ -127,15 +127,15 @@ export default function Services() {
             </div>
 
             <div className="card-info">
-              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+              <p>Um Bot executa tarefas automatizadas, repetitivas e pré-definidas que imitam ou substituem o comportamento do usuário humano. Muito utilizado em chats, pesquisas de mercado, redução de custos, identificar oportunidade de negócios ou impulsionar a qualificação de leads.</p>
 
-              <Link href="/">
-                <AiOutlinePlus
+              <Link href="/#contato">
+                {/* <AiOutlinePlus
                   size={20}
                   color={theme.colors.black}
-                />
+                /> */}
 
-                Mais detalhes
+                Peça um orçamento
               </Link>
             </div>
           </div>
@@ -151,15 +151,15 @@ export default function Services() {
             </div>
 
             <div className="card-info">
-              <p>Prestamos suporte para clientes e terceiros, realizando melhorias em sites, aplicativos, jogos e etc.</p>
+              <p>Somos especialistas em suporte de TI, afinal, com um bom suporte irá auxiliar na eliminação, esclarecimento e resolução de erros. Assim, as reclamações de clientes podem ser reduzidas gradativamente, o que, por sua vez, impacta positivamente nos níveis de satisfação por parte do cliente.</p>
 
-              <Link href="/">
-                <AiOutlinePlus
+              <Link href="/#contato">
+                {/* <AiOutlinePlus
                   size={20}
                   color={theme.colors.black}
-                />
+                /> */}
 
-                Mais detalhes
+                Peça um orçamento
               </Link>
             </div>
           </div>

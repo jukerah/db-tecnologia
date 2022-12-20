@@ -4,7 +4,7 @@ import Image from 'next/image';
 import * as C from "./styles";
 import { theme } from "../../../styles/Theme";
 
-import { AiOutlinePlus } from 'react-icons/ai';
+import { AiFillEye, AiOutlinePlus } from 'react-icons/ai';
 import TitlePage from "../../title/TitlePage";
 
 interface ProjectProps {
@@ -55,7 +55,13 @@ export default function Portfolio({ listProject }: PageProps) {
                   width={400}
                   height={225}
                 />
-                <span>Ver o projeto</span>
+                <span>
+                  <AiFillEye
+                    size={24}
+                    color={theme.colors.black}
+                  />
+                  Ver o projeto
+                </span>
               </Link>
             ))}
           </div>

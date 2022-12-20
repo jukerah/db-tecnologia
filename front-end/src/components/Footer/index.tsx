@@ -60,9 +60,10 @@ export default function Footer({ phone, email }: FooterProps) {
           <h2>A Agência</h2>
           <Link href="/#quem-somos">&gt; Quem Somos</Link>
           <Link href="/#portfolio">&gt; Portfólio</Link>
+          <Link href="/#servicos">&gt; Serviços</Link>
         </div>
 
-        <div className="container">
+        {/* <div className="container">
           <h2>Serviços</h2>
           <Link href="/site-institucional">&gt; Site Institucional</Link>
           <Link href="/loja-virtual">&gt; Loja Virtual</Link>
@@ -73,7 +74,7 @@ export default function Footer({ phone, email }: FooterProps) {
           <Link href="/blogs">&gt; Blogs</Link>
           <Link href="/jogos">&gt; Jogos</Link>
           <Link href="/aplicativos">&gt; Aplicativos</Link>
-        </div>
+        </div> */}
 
         <div className="container">
           <h2>Fale Com a Gente</h2>

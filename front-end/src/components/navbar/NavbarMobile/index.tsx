@@ -34,9 +34,9 @@ export default function NavbarMobile() {
               onClick={() => isOpenedServices ? setIsOpenedServices(false) : setIsOpenedServices(true)}
             >
               Serviços
-              <FiChevronDown />
+              {/* <FiChevronDown /> */}
             </Link>
-            <ul className="list-dropdown">
+            {/* <ul className="list-dropdown">
               <li>
                 <Link
                   href={"/site"}
@@ -109,7 +109,7 @@ export default function NavbarMobile() {
                   Aplicativos
                 </Link>
               </li>
-            </ul>
+            </ul> */}
           </C.Dropdown>
           <li>
             <Link

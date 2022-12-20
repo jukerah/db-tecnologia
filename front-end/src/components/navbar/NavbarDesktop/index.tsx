@@ -17,9 +17,9 @@ export default function NavbarDesktop() {
         <C.Dropdown>
           <Link href={"/#servicos"} className="menu-item">
             Serviços
-            <FiChevronDown />
+            {/* <FiChevronDown /> */}
           </Link>
-          <ul className="list-dropdown">
+          {/* <ul className="list-dropdown">
             <li>
               <Link href={"/site"} className="dropdown-item">
                 Site Institucional
@@ -60,7 +60,7 @@ export default function NavbarDesktop() {
                 Aplicativos
               </Link>
             </li>
-          </ul>
+          </ul> */}
         </C.Dropdown>
         <li>
           <Link href={"/#portfolio"} className="menu-item">

@@ -132,7 +132,10 @@ export const Services = styled.section`
         padding: 40px 24px;
         gap: 40px;
 
-        button { max-width: 380px; }
+        button {
+            max-width: 380px;
+            text-transform: uppercase;
+        }
 
         @media (min-width: 1024px) {
             padding: 56px 0;

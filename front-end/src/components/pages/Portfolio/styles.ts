@@ -133,6 +133,7 @@ export const Portfolio = styled.section`
             position: absolute;
 
             padding: 16px 24px;
+            gap: 8px;
         }
 
         @media (min-width: 1024px) {
