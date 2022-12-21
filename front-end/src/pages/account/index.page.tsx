@@ -1,9 +1,10 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import Head from "next/head";
 import * as C from "./styles";
 import { theme } from "../../styles/Theme";
 
 import { canSSRAuth } from "../../utils/canSSRAuth";
+import { AuthContext } from "../../contexts/AuthContext";
 
 import { FaUser } from 'react-icons/fa';
 import { MdEmail } from 'react-icons/md';
@@ -16,6 +17,8 @@ import ModalUpdateEmail from '../../components/modal/user/ModalUpdateEmail';
 import ModalUpdatePassword from '../../components/modal/user/ModalUpdatePassword';
 
 export default function Account() {
+  const { user } = useContext(AuthContext);
+
   const [ isOpenedModalUpdateUser, setIsOpenedModalUpdateUser ] = useState(false);
   const [ isOpenedModalUpdateEmail, setIsOpenedModalUpdateEmail ] = useState(false);
   const [ isOpenedModalUpdatePassword, setIsOpenedModalUpdatePassword ] = useState(false);
@@ -44,6 +47,11 @@ export default function Account() {
 
         <C.ContainerAdminPanel>
           <h1>Dados da Conta</h1>
+
+          <div className="container-info">
+            <p><span>Usuário:</span> {user.username}</p>
+            <p><span>E-mail:</span> {user.email}</p>
+          </div>
 
           <div className="container-button">
             <ModalButton

@@ -10,6 +10,7 @@ import Portfolio from '../components/pages/Portfolio';
 import AboutUs from '../components/pages/AboutUs';
 import Contact from '../components/pages/Contact';
 import Footer from "../components/Footer";
+import { ChatButton } from "../components/button/PrimaryButton/ChatButton";
 
 interface ProjectProps {
   id: string;
@@ -35,36 +36,40 @@ export default function Index({ listProject, listEmployee }: PageProps) {
   const email = "exemplo@exemplo.com";
   
   return (
-    <C.Index>
-      <Head>
-        <title>DB Tecnologia</title>
-        <meta name="description" content="Aqui você encontra a solução ideal para o seu negócio!" />
-      </Head>
+    <>
+      <C.Index>
+        <Head>
+          <title>DB Tecnologia</title>
+          <meta name="description" content="Aqui você encontra a solução ideal para o seu negócio!" />
+        </Head>
 
-      <C.Container>
-        <Header />
-        
-        <C.Pages>
-          <Home />
+        <C.Container>
+          <Header />
+          
+          <C.Pages>
+            <Home />
 
-          <Services />
+            <Services />
 
-          <Portfolio listProject={listProject} />
+            <Portfolio listProject={listProject} />
 
-          <AboutUs listEmployee={listEmployee} />
+            <AboutUs listEmployee={listEmployee} />
 
-          <Contact
+            <Contact
+              phone={phone}
+              email={email}
+            />
+          </C.Pages>
+
+          <Footer
             phone={phone}
             email={email}
           />
-        </C.Pages>
+        </C.Container>
+      </C.Index>
 
-        <Footer
-          phone={phone}
-          email={email}
-        />
-      </C.Container>
-    </C.Index>
+      <ChatButton />
+    </>
   )
 }
 

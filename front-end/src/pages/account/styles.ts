@@ -32,6 +32,22 @@ export const ContainerAdminPanel = styled.div`
     padding: 84px 24px 40px 24px;
     gap: 24px;
 
+    .container-info {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        
+        p { 
+            color: ${({ theme }) => theme.colors.black};
+            font-size: ${({ theme }) => theme.fontSizes.sm};
+        }
+        
+        span {
+            color: ${({ theme }) => theme.colors.luckPoint};
+            font-weight: ${({ theme }) => theme.fontWeight.semiBold};
+        }
+    }
+
     .container-button {
         display: grid;
         grid-template-columns: 1fr;
@@ -50,6 +66,9 @@ export const ContainerAdminPanel = styled.div`
         padding: 136px 32px 40px 32px;
         gap: 48px;
 
+        .container-info {
+            p { font-size: ${({ theme }) => theme.fontSizes.lg}; }
+        }
         .container-button { gap: 24px; }
     }
 `;
